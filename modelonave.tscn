@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfcattyext8cn"]
+
+[ext_resource type="PackedScene" uid="uid://brlwlo6i4fyip" path="res://textures/low_poly_space_ship/scene.gltf" id="1_fsdol"]
+
+[node name="ModeloNave" instance=ExtResource("1_fsdol")]

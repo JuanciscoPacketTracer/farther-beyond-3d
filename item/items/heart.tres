@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=3 format=3 uid="uid://bf1hx35ekwxx8"]
+
+[ext_resource type="Script" uid="uid://bqo2u1m3tvjt6" path="res://item/item_data_consumable.gd" id="1_srdm1"]
+[ext_resource type="Texture2D" uid="uid://bqyevh127vtew" path="res://item/items/heart.png" id="2_l3878"]
+
+[resource]
+script = ExtResource("1_srdm1")
+heal_value = 1
+heal_type = 1
+name = "Corazon"
+description = "Corazon que agrega 1 de salud total"
+texture = ExtResource("2_l3878")
+metadata/_custom_type_script = "uid://bqo2u1m3tvjt6"

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmk44kbcfpej5"]
+
+[ext_resource type="PackedScene" uid="uid://brlwlo6i4fyip" path="res://textures/low_poly_space_ship/scene.gltf" id="1_d66cu"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_d66cu")]

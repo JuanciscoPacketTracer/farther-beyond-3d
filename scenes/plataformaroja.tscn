@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ba8dgrua4xoo5"]
+
+[ext_resource type="ArrayMesh" uid="uid://c0onn0ga7ojfy" path="res://modelos/KayKit_Platformer_Pack_1.0_FREE/KayKit_Platformer_Pack_1.0_FREE/Assets/obj/red/platform_4x4x1_red.obj" id="1_v4g1b"]
+[ext_resource type="Texture2D" uid="uid://0d3cugoiduop" path="res://textures/image (12).png" id="2_w2esi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpwn8"]
+albedo_texture = ExtResource("2_w2esi")
+normal_scale = 11.67
+heightmap_enabled = true
+heightmap_scale = 16.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xegi6"]
+points = PackedVector3Array(1.8523343, 0, 1.9122317, -1.9727856, 0.045571014, -1.9727854, -1.9656816, 0.9686371, -1.9656813, 1.9727856, 0.045571014, -1.9727854, 1.9656816, 0.9686371, 1.9656813, -1.9656816, 0.9686371, 1.9656813, 1.9656816, 0.9686371, -1.9656813, -1.9727856, 0.045571014, 1.9727854, -1.9122319, 0, -1.852334, 1.7944485, 1, -1.7944484, -1.7940861, 1, 1.7944484, 1.8523343, 0, -1.9122317, 1.9727856, 0.045571014, 1.9727854, -1.9122319, 0, 1.852334, -1.7940861, 1, -1.7944484, 1.7944485, 1, 1.7944484, 1.9122319, 0, -1.852334, 1.9122319, 0, 1.852334, -1.8519601, 0, -1.9122317, -1.8519601, 0, 1.9122317)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011098385, 0.015037537, -0.015424728)
+mesh = ExtResource("1_v4g1b")
+surface_material_override/0 = SubResource("StandardMaterial3D_rpwn8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_xegi6")

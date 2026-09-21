@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dslja142rg4ll"]
+
+[ext_resource type="Script" uid="uid://dbtagegh31ech" path="res://inventory/hot_bat_inventory.gd" id="1_624it"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_624it"]
+
+[node name="HotBatInventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_624it")
+script = ExtResource("1_624it")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2

@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://cwo4sdxpk8uyj"]
+
+[ext_resource type="Script" uid="uid://b1hcl2k5j738l" path="res://scripts/menu.gd" id="1_70i5f"]
+[ext_resource type="Shader" uid="uid://b3kbi10w84hcm" path="res://backgroundmenu.gdshader" id="2_mj5lg"]
+[ext_resource type="Texture2D" uid="uid://474lguhwukr6" path="res://bg1.png" id="3_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://bx8xb4bjdtpka" path="res://bg2.png" id="4_6cdou"]
+[ext_resource type="Script" uid="uid://cxitkoflyakxd" path="res://scripts/planeta.gd" id="5_i42df"]
+[ext_resource type="Script" uid="uid://c23uc6gxkkk86" path="res://scripts/planeta_2.gd" id="6_7jp70"]
+[ext_resource type="Texture2D" uid="uid://d1c3y4rqj1v27" path="res://textures/ChatGPT Image 7 dic 2025, 17_55_20.png" id="7_mj5lg"]
+[ext_resource type="Script" uid="uid://blmwlueda3b70" path="res://scripts/texture_rect_3.gd" id="8_g6gyw"]
+[ext_resource type="Texture2D" uid="uid://b7vrwdcxgf1q2" path="res://textures/fartherbeyond.png" id="9_mj5lg"]
+[ext_resource type="FontFile" uid="uid://bck4x7rmf5b4w" path="res://Minecraft.ttf" id="10_81l6r"]
+[ext_resource type="AudioStream" uid="uid://f8tqaf6ebif6" path="res://Musica/Musica de Menu.mp3" id="11_mj5lg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk3ma"]
+shader = ExtResource("2_mj5lg")
+shader_parameter/SPEED = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrnbx"]
+bg_color = Color(0.02098597, 0.6248333, 0.99999994, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqepy"]
+bg_color = Color(0, 0.46509993, 0.754912, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_ufwb2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Nave:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130.00002, 279)]
+}
+
+[sub_resource type="Animation" id="Animation_mj5lg"]
+resource_name = "menu"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Nave:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-744.99994, 572), Vector2(130.00002, 279)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6cdou"]
+_data = {
+&"RESET": SubResource("Animation_ufwb2"),
+&"menu": SubResource("Animation_mj5lg")
+}
+
+[node name="Menu" type="Control" unique_id=1955713344]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_70i5f")
+
+[node name="ColorRect2" type="TextureRect" parent="." unique_id=2041664879]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ufwb2")
+expand_mode = 1
+
+[node name="Estrellas" type="TextureRect" parent="." unique_id=535618868]
+material = SubResource("ShaderMaterial_kk3ma")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ufwb2")
+stretch_mode = 1
+
+[node name="Planeta" type="TextureRect" parent="." unique_id=3707825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 254.0
+offset_top = -23.0
+offset_right = 638.0
+offset_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6cdou")
+script = ExtResource("5_i42df")
+
+[node name="Planeta2" type="TextureRect" parent="." unique_id=1658127599]
+modulate = Color(0.26999998, 0.53766674, 1, 0.4509804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 254.0
+offset_top = -23.0
+offset_right = 638.0
+offset_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6cdou")
+script = ExtResource("6_7jp70")
+
+[node name="Nave" type="TextureRect" parent="." unique_id=569592987]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.00002
+offset_top = 279.0
+offset_right = 514.0
+offset_bottom = 655.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.48399785, 0.48677552)
+texture = ExtResource("7_mj5lg")
+script = ExtResource("8_g6gyw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1805930726]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -624.0
+offset_top = -55.999996
+offset_right = -123.99997
+offset_bottom = 444.0
+grow_horizontal = 2
+scale = Vector2(1.0155203, 0.71737677)
+texture = ExtResource("9_mj5lg")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=934869563]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=969494342]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 267.0
+offset_right = 342.0
+offset_bottom = 471.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="btniniciar" type="Button" parent="VBoxContainer" unique_id=444800438]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_81l6r")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Iniciar"
+
+[node name="btnsalir" type="Button" parent="VBoxContainer" unique_id=745901173]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_81l6r")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Salir"
+
+[node name="bgmusic" type="AudioStreamPlayer" parent="." unique_id=1452950358]
+stream = ExtResource("11_mj5lg")
+volume_db = 3.0
+autoplay = true
+bus = &"Musica"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1270824211]
+libraries/ = SubResource("AnimationLibrary_6cdou")
+autoplay = &"menu"
+
+[connection signal="pressed" from="VBoxContainer/btniniciar" to="." method="_on_btniniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnsalir" to="." method="_on_btnsalir_pressed"]

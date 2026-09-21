@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ycsgvldnmq1"]
+
+[ext_resource type="PackedScene" uid="uid://c0scxmwxfjxn2" path="res://modelos/KayKit_DungeonRemastered_1.1_FREE/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chest.gltf" id="1_oii8l"]
+[ext_resource type="Script" uid="uid://b7fbl1ry8snhp" path="res://scenes/chest.gd" id="2_sy5e1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oii8l"]
+size = Vector3(1.3089752, 1.7190967, 1.3997192)
+
+[node name="chest" groups=["external_inventory"] instance=ExtResource("1_oii8l")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("2_sy5e1")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.00015377998, 0.6493587, 0.0042419434)
+shape = SubResource("BoxShape3D_oii8l")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://qrr7o31jgplf"]
+
+[ext_resource type="PackedScene" uid="uid://ctu6ebdgmymsb" path="res://addons/mob/bat/murciegalo2.glb" id="1_bat34"]
+
+[node name="bat3" instance=ExtResource("1_bat34")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-8.271806e-25, -0.0074000033, -2.5329136e-10)
+bones/0/rotation = Quaternion(1, -4.142208e-16, 2.4203237e-08, -8.557136e-09)
+bones/1/rotation = Quaternion(0.7014777, 0.6867177, 0.18848537, 0.028654959)
+bones/2/rotation = Quaternion(-0.056015395, -0.016040929, 0.2748378, 0.9597235)
+bones/3/rotation = Quaternion(0.041213542, 0.059984885, 0.26475266, 0.9615661)
+bones/4/rotation = Quaternion(0.7014778, -0.6867176, -0.18848555, 0.028654836)
+bones/5/rotation = Quaternion(-0.056015436, 0.016041083, -0.27483773, 0.9597235)
+bones/6/rotation = Quaternion(0.041213576, -0.059984885, -0.26475266, 0.9615661)
+bones/7/position = Vector3(0.1309921, 0.2273917, 0.08785144)
+bones/7/rotation = Quaternion(0.26196837, -0.08345512, -0.26575127, 0.9240044)
+bones/8/rotation = Quaternion(1.0035972e-08, 0.69088256, 0.722967, 3.3928437e-08)
+bones/10/position = Vector3(-0.1309921, 0.2273917, 0.08785142)
+bones/10/rotation = Quaternion(0.26196846, 0.08345512, 0.26575127, 0.9240044)
+bones/11/rotation = Quaternion(8.224503e-09, 0.69088256, 0.722967, 4.9902265e-08)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"

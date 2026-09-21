@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bc1twedi4t407"]
+
+[ext_resource type="Script" uid="uid://cvh61xbfdfpyh" path="res://scripts/pausa.gd" id="1_4gdby"]
+[ext_resource type="FontFile" uid="uid://bck4x7rmf5b4w" path="res://Minecraft.ttf" id="2_i80os"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrnbx"]
+bg_color = Color(0.02098597, 0.6248333, 0.99999994, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqepy"]
+bg_color = Color(0, 0.46509993, 0.754912, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[node name="Pausa" type="Control" unique_id=2107445790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gdby")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1961156700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.29803923, 0.50980395, 1, 0.20392157)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2106059602]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=532130599]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 172.0
+offset_right = 308.0
+offset_bottom = 382.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="btncontinuar" type="Button" parent="VBoxContainer" unique_id=154826921]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i80os")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Continuar"
+
+[node name="btnsalir" type="Button" parent="VBoxContainer" unique_id=1366447506]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i80os")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Salir del nivel"
+
+[connection signal="pressed" from="VBoxContainer/btncontinuar" to="." method="_on_btniniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/btncontinuar" to="." method="_on_btncontinuar_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnsalir" to="." method="_on_btnsalir_pressed"]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cp1hr662iaqnb"]
+
+[ext_resource type="Script" uid="uid://u8xhbxx4pw77" path="res://scripts/creditos.gd" id="1_jddgq"]
+[ext_resource type="Texture2D" uid="uid://c2v7jvuri8rou" path="res://textures/NightSkyHDRI003_4K_HDR.exr" id="2_lgbdq"]
+[ext_resource type="AudioStream" uid="uid://dmckuuf11rmwa" path="res://Musica/Menu.mp3" id="3_ul0vb"]
+
+[node name="creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jddgq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("2_lgbdq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = -174.0
+offset_right = 387.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+fit_content = true
+scroll_following = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ul0vb")

@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://b3crpfudu2l5p"]
+
+[ext_resource type="Script" uid="uid://s7s1l74ethl6" path="res://scenes/menuopciones.gd" id="1_opvl0"]
+[ext_resource type="Shader" uid="uid://b3kbi10w84hcm" path="res://backgroundmenu.gdshader" id="2_nmm7o"]
+[ext_resource type="Texture2D" uid="uid://474lguhwukr6" path="res://bg1.png" id="3_7555n"]
+[ext_resource type="Texture2D" uid="uid://bx8xb4bjdtpka" path="res://bg2.png" id="4_dxdp5"]
+[ext_resource type="Script" uid="uid://cxitkoflyakxd" path="res://scripts/planeta.gd" id="5_jdcxa"]
+[ext_resource type="Script" uid="uid://c23uc6gxkkk86" path="res://scripts/planeta_2.gd" id="6_kxdeb"]
+[ext_resource type="Texture2D" path="res://bg3.png" id="7_twvjd"]
+[ext_resource type="Script" uid="uid://blmwlueda3b70" path="res://scripts/texture_rect_3.gd" id="8_0mfcp"]
+[ext_resource type="FontFile" uid="uid://bck4x7rmf5b4w" path="res://Minecraft.ttf" id="9_vjw4a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk3ma"]
+shader = ExtResource("2_nmm7o")
+shader_parameter/SPEED = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrnbx"]
+bg_color = Color(0.02098597, 0.6248333, 0.99999994, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqepy"]
+bg_color = Color(0, 0.46509993, 0.754912, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1u5m5"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5c3sm"]
+color = Color(0.25, 0.7124999, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0ytn6"]
+color = Color(0.2509804, 0.7137255, 1, 1)
+thickness = 6
+
+[node name="opciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_opvl0")
+
+[node name="Estrellas" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_kk3ma")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7555n")
+stretch_mode = 1
+
+[node name="Planeta" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 254.0
+offset_top = -23.0
+offset_right = 638.0
+offset_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_dxdp5")
+script = ExtResource("5_jdcxa")
+
+[node name="Planeta2" type="TextureRect" parent="."]
+modulate = Color(0.26999998, 0.53766674, 1, 0.4509804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 254.0
+offset_top = -23.0
+offset_right = 638.0
+offset_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_dxdp5")
+script = ExtResource("6_kxdeb")
+
+[node name="Nave" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 233.0
+offset_top = 234.0
+offset_right = 617.0
+offset_bottom = 610.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.48399785, 0.48677552)
+texture = ExtResource("7_twvjd")
+script = ExtResource("8_0mfcp")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Botones" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="btnvolumen" type="Button" parent="CenterContainer/Botones"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_vjw4a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Volumen"
+
+[node name="btnconfiguracion" type="Button" parent="CenterContainer/Botones"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_vjw4a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Controles"
+
+[node name="btnvolver" type="Button" parent="CenterContainer/Botones"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_vjw4a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Volver"
+
+[node name="Volumen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.00003
+offset_top = -133.99998
+offset_right = -158.00003
+offset_bottom = -93.999985
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10.107425, 7.8556643)
+
+[node name="Label" type="Label" parent="Volumen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HSlider" type="HSlider" parent="Volumen"]
+layout_mode = 0
+offset_left = 6.2330427
+offset_top = 22.658812
+offset_right = 34.57596
+offset_bottom = 38.658813
+scale = Vector2(0.9808923, 0.44636688)
+theme_override_styles/slider = SubResource("StyleBoxLine_1u5m5")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_5c3sm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_0ytn6")
+value = 50.0
+rounded = true
+
+[node name="btnvolver2" type="Button" parent="Volumen"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
+offset_left = 4.946869
+offset_top = 31.442322
+offset_right = 304.94687
+offset_bottom = 91.44232
+scale = Vector2(0.09693057, 0.12333825)
+theme_override_fonts/font = ExtResource("9_vjw4a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqepy")
+text = "Volver"
+
+[connection signal="pressed" from="CenterContainer/Botones/btnvolumen" to="." method="_on_btnvolumen_pressed"]
+[connection signal="pressed" from="CenterContainer/Botones/btnvolumen" to="." method="_on_btniniciar_pressed"]
+[connection signal="pressed" from="CenterContainer/Botones/btnconfiguracion" to="." method="_on_btnconfiguracion_pressed"]
+[connection signal="pressed" from="CenterContainer/Botones/btnvolver" to="." method="_on_btnsalir_pressed"]
+[connection signal="pressed" from="CenterContainer/Botones/btnvolver" to="." method="_on_btnvolver_pressed"]
+[connection signal="pressed" from="Volumen/btnvolver2" to="." method="_on_btnvolver_2_pressed"]
+[connection signal="pressed" from="Volumen/btnvolver2" to="." method="_on_btniniciar_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dfpopf38s0ti2"]
+
+[ext_resource type="ArrayMesh" uid="uid://m00dauvx8c8s" path="res://modelos/KayKit_Adventurers_2.0_FREE/Assets/obj/smokebomb.obj" id="1_7bu61"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5ssf"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 10)
+angle_min = 90.000015
+angle_max = 90.000015
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 8.0
+initial_velocity_max = 12.0
+angular_velocity_min = -2.000016
+angular_velocity_max = 1.9999839
+gravity = Vector3(0, -20, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+amount = 40
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_e5ssf")
+draw_pass_1 = ExtResource("1_7bu61")

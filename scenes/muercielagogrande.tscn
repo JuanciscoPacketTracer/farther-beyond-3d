@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://duktavg72ujq8"]
+
+[ext_resource type="Script" uid="uid://d0s42p2iah8aa" path="res://scripts/murcielagoenemigo.gd" id="1_v57iu"]
+[ext_resource type="PackedScene" uid="uid://b3w2vp0dbsfa4" path="res://addons/mob/bat/bat_model.glb" id="2_gvwga"]
+[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://addons/mob/mob_ko.wav" id="3_miwyu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x0lcx"]
+radius = 0.355
+
+[node name="bat" type="RigidBody3D" unique_id=1229647035]
+gravity_scale = 0.0
+script = ExtResource("1_v57iu")
+
+[node name="bat_model" parent="." unique_id=1118786851 instance=ExtResource("2_gvwga")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="bat_model/Armature" index="0"]
+bones/0/position = Vector3(0, -0.007400004, 0)
+bones/1/rotation = Quaternion(-0.028654926, 0.18848532, -0.6867176, 0.7014778)
+bones/2/rotation = Quaternion(-0.056015443, -0.016041048, 0.27483782, 0.9597235)
+bones/3/rotation = Quaternion(0.04121358, 0.059984986, 0.2647528, 0.96156603)
+bones/4/rotation = Quaternion(-0.028654926, -0.18848532, 0.6867176, 0.7014778)
+bones/5/rotation = Quaternion(-0.056015443, 0.016041048, -0.27483782, 0.9597235)
+bones/6/rotation = Quaternion(0.04121358, -0.059984986, -0.2647528, 0.96156603)
+bones/7/position = Vector3(0.1309921, -0.22739176, -0.087851465)
+bones/7/rotation = Quaternion(0.26196837, 0.08345512, 0.26575127, 0.9240044)
+bones/8/rotation = Quaternion(3.8433356e-08, 0.69088244, 0.72296715, 1.6451473e-08)
+bones/10/position = Vector3(-0.1309921, -0.22739176, -0.087851465)
+bones/10/rotation = Quaternion(0.26196837, -0.083455116, -0.26575127, 0.9240044)
+bones/11/rotation = Quaternion(2.5423756e-08, 0.69088244, 0.72296715, 3.637758e-08)
+
+[node name="AnimationPlayer" parent="bat_model" index="1"]
+autoplay = &"Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=655057234]
+transform = Transform3D(3.7, 0, 0, 0, 3.7, 0, 0, 0, 3.7, 0, 0, 0)
+shape = SubResource("SphereShape3D_x0lcx")
+
+[node name="chillido" type="AudioStreamPlayer3D" parent="." unique_id=400813743]
+stream = ExtResource("3_miwyu")
+volume_db = 2.0
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[editable path="bat_model"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bobp2hh2v8wsn"]
+
+[ext_resource type="ArrayMesh" uid="uid://y3t01n72kdm3" path="res://modelos/KayKit_Platformer_Pack_1.0_FREE/KayKit_Platformer_Pack_1.0_FREE/Assets/obj/neutral/cone.obj" id="1_unr82"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k0c25"]
+scale_min = 100.0
+scale_max = 100.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" unique_id=832221107]
+emitting = false
+amount = 250
+lifetime = 0.25
+preprocess = 0.25
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_k0c25")
+draw_pass_1 = ExtResource("1_unr82")

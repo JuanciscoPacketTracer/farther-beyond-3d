@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=3 format=3 uid="uid://c7yej3nedxouj"]
+
+[ext_resource type="Script" uid="uid://bqo2u1m3tvjt6" path="res://item/item_data_consumable.gd" id="1_h3qha"]
+[ext_resource type="Texture2D" uid="uid://bqgdrgoet4l76" path="res://item/items/potion.png" id="2_klmqy"]
+
+[resource]
+script = ExtResource("1_h3qha")
+heal_value = 3
+name = "Pocion"
+description = "Pocion que regenera 3 puntos de salud"
+stackable = true
+texture = ExtResource("2_klmqy")
+metadata/_custom_type_script = "uid://bqo2u1m3tvjt6"

@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://bibnd6ye6jamw"]
+
+[ext_resource type="Script" uid="uid://kfefbqdwiyo1" path="res://scripts/astronaut_13d.gd" id="1_xqvu6"]
+[ext_resource type="Resource" uid="uid://bdxol8tcv2hkm" path="res://inventory/inventariodeprueba.tres" id="2_llxeh"]
+[ext_resource type="AudioStream" uid="uid://joxl3kh67l1r" path="res://addons/player/sounds/robot_step_01.wav" id="4_jhnwu"]
+[ext_resource type="AudioStream" uid="uid://dmcy81a5m2yq" path="res://addons/player/sounds/robot_step_02.wav" id="5_mnmdw"]
+[ext_resource type="AudioStream" uid="uid://ccojt633qlqvh" path="res://addons/player/sounds/robot_step_03.wav" id="6_f2guf"]
+[ext_resource type="AudioStream" uid="uid://bj3fk8qb5ler2" path="res://addons/player/sounds/robot_step_04.wav" id="7_x0b7d"]
+[ext_resource type="AudioStream" uid="uid://rru4ud18h3os" path="res://addons/player/sounds/robot_step_05.wav" id="8_ud1la"]
+[ext_resource type="AudioStream" uid="uid://b4x0f4pgfifoo" path="res://addons/player/sounds/robot_jump.wav" id="9_1ai7w"]
+[ext_resource type="AudioStream" uid="uid://bhoyegbjust84" path="res://addons/player/sounds/robot_land.wav" id="10_us44t"]
+[ext_resource type="Texture2D" uid="uid://n33vpvoevdj8" path="res://hearts.png" id="11_5dwq3"]
+[ext_resource type="Script" uid="uid://cns6ycblpd14" path="res://Player/gui.gd" id="11_jb40x"]
+[ext_resource type="PackedScene" uid="uid://bnhpn1wraup6w" path="res://Particulas/efectocuracion.tscn" id="13_uwq42"]
+[ext_resource type="PackedScene" uid="uid://bpatcp2phqqlq" path="res://Particulas/efectoharm.tscn" id="14_60rl3"]
+[ext_resource type="PackedScene" uid="uid://c2w5ve7p66wjb" path="res://addons/player/sophia_skin/astronautskin.tscn" id="14_bs357"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqvu6"]
+radius = 0.32470703
+height = 2.0942383
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xqvu6"]
+radius = 0.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwq42"]
+atlas = ExtResource("11_5dwq3")
+region = Rect2(95, 0, 20, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60rl3"]
+atlas = ExtResource("11_5dwq3")
+region = Rect2(115, 0, 20, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs357"]
+atlas = ExtResource("11_5dwq3")
+region = Rect2(135, 0, 20, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxb8h"]
+atlas = ExtResource("11_5dwq3")
+region = Rect2(155, 0, 20, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyqm7"]
+atlas = ExtResource("11_5dwq3")
+region = Rect2(175, 0, 20, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gx80y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwq42")
+}],
+"loop": 1,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwq42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60rl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs357")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxb8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyqm7")
+}],
+"loop": 1,
+"name": &"full",
+"speed": 2.0
+}]
+
+[node name="Astronaut13D" type="CharacterBody3D" unique_id=237214103 groups=["player"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_xqvu6")
+inventory_data = ExtResource("2_llxeh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=779248483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0113448, 0.030276239)
+shape = SubResource("CapsuleShape3D_xqvu6")
+
+[node name="camerapivot" type="Node3D" parent="." unique_id=1592566020]
+unique_name_in_owner = true
+position = Vector3(0, 1.5079248, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="camerapivot" unique_id=299086264]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_xqvu6")
+spring_length = 8.0
+margin = 0.15
+collision_mask = 3
+
+[node name="Camera3D" type="Camera3D" parent="camerapivot/SpringArm3D" unique_id=855336674]
+unique_name_in_owner = true
+
+[node name="InteractRay" type="RayCast3D" parent="camerapivot/SpringArm3D/Camera3D" unique_id=727649101]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 0, 0, 1, 3.5527137e-15, -2.3841858e-07, -2.9802322e-08)
+target_position = Vector3(0, -1, -10)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="paso1" type="AudioStreamPlayer3D" parent="." unique_id=1305751271]
+stream = ExtResource("4_jhnwu")
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="paso2" type="AudioStreamPlayer3D" parent="." unique_id=102426929]
+stream = ExtResource("5_mnmdw")
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="paso3" type="AudioStreamPlayer3D" parent="." unique_id=1594736040]
+stream = ExtResource("6_f2guf")
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="paso4" type="AudioStreamPlayer3D" parent="." unique_id=765733446]
+stream = ExtResource("7_x0b7d")
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="paso5" type="AudioStreamPlayer3D" parent="." unique_id=626571834]
+stream = ExtResource("8_ud1la")
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="saltar" type="AudioStreamPlayer3D" parent="." unique_id=989604452]
+stream = ExtResource("9_1ai7w")
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="aterrizar" type="AudioStreamPlayer3D" parent="." unique_id=200896907]
+stream = ExtResource("10_us44t")
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="ui_hearts" type="CanvasLayer" parent="." unique_id=1086803135]
+script = ExtResource("11_jb40x")
+
+[node name="ColorRect" type="ColorRect" parent="ui_hearts" unique_id=347808156]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="hearts_container" type="HBoxContainer" parent="ui_hearts" unique_id=1577566080]
+offset_right = 1152.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+layout_direction = 2
+
+[node name="heart_template" type="MarginContainer" parent="ui_hearts/hearts_container" unique_id=1956017301]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+
+[node name="heart" type="AnimatedSprite2D" parent="ui_hearts/hearts_container/heart_template" unique_id=1812610166]
+texture_filter = 1
+position = Vector2(20, 23)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gx80y")
+animation = &"empty"
+autoplay = "full"
+frame_progress = 0.93951184
+
+[node name="healparticles" parent="." unique_id=2059525716 instance=ExtResource("13_uwq42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1961122, 0)
+
+[node name="harmparticles" parent="." unique_id=1488164998 instance=ExtResource("14_60rl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76803946, 0)
+
+[node name="astronautskin" parent="." unique_id=12548406 instance=ExtResource("14_bs357")]
+
+[node name="edge_check" type="RayCast3D" parent="astronautskin" unique_id=569096075]
+transform = Transform3D(1, 7.1054274e-15, 0, -8.881784e-16, 0.19531286, 0.98074096, 7.1054274e-15, -0.98074096, 0.19531286, -8.881784e-16, 0.32948816, 0)
+target_position = Vector3(0, -0.7, 0.7)
+collision_mask = 15
+
+[node name="edge_top_check" type="RayCast3D" parent="astronautskin"]
+position = Vector3(0, 1.75, -0.55)
+target_position = Vector3(0, -2.2, 0)
+collision_mask = 15
+
+[connection signal="toggle_inventory" from="." to="." method="_on_toggle_inventory"]

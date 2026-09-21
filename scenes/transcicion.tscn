@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bfnkpqj6erq7g"]
+
+[ext_resource type="Script" uid="uid://d1tkpb2d2fhl1" path="res://scripts/transcicion.gd" id="1_w08m1"]
+[ext_resource type="Texture2D" uid="uid://b3jnijc2q353v" path="res://textures/logoa.png" id="2_rke3e"]
+
+[sub_resource type="Animation" id="Animation_rke3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_euiiw"]
+resource_name = "rotacion"
+length = 2.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2, 1.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707964, 3.1415927, 4.712389, 6.265732]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qu1x0"]
+_data = {
+&"RESET": SubResource("Animation_rke3e"),
+&"rotacion": SubResource("Animation_euiiw")
+}
+
+[node name="Transcicion" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_w08m1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.009709176, 0.16442862, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(1028, 539)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_rke3e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_qu1x0")
+}
+autoplay = "rotacion"
+
+[node name="Label" type="Label" parent="."]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = "Cargando"
+
+[node name="Timer" type="Timer" parent="."]

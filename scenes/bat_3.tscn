@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dsbbr8allvm7d"]
+
+[ext_resource type="Script" uid="uid://d0s42p2iah8aa" path="res://scripts/murcielagoenemigo.gd" id="1_ewks6"]
+[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://addons/mob/mob_ko.wav" id="2_str04"]
+[ext_resource type="AudioStream" uid="uid://rj4qhd72b1my" path="res://PRSFX- Pound.ogg" id="3_e5cpw"]
+[ext_resource type="AudioStream" uid="uid://kg6w7vvt3qu2" path="res://PRSFX- Confused.ogg" id="4_q5ii3"]
+[ext_resource type="PackedScene" uid="uid://b2e527wi685x6" path="res://Particulas/efectoaturdido.tscn" id="5_ovd8d"]
+[ext_resource type="PackedScene" uid="uid://qrr7o31jgplf" path="res://addons/mob/bat/bat_3.tscn" id="6_8hg3r"]
+[ext_resource type="PackedScene" uid="uid://bpatcp2phqqlq" path="res://Particulas/efectoharm.tscn" id="7_str04"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x0lcx"]
+radius = 0.355
+
+[node name="bat" type="RigidBody3D" unique_id=1663150078 groups=["enemigo"]]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 0.2
+angular_damp = 0.1
+script = ExtResource("1_ewks6")
+roam_speed = 4.0
+chase_speed = 7.0
+detection_radius = null
+damage = 2
+min_chillido_interval = null
+max_chillido_interval = null
+rebound_force = 8.0
+stun_time = 1.0
+max_health = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=528454497]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.00046253204, -0.1297822, -0.0035600662)
+shape = SubResource("SphereShape3D_x0lcx")
+
+[node name="chillido" type="AudioStreamPlayer3D" parent="." unique_id=1343882015]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.00046253204, 0.028611898, -0.0035600662)
+stream = ExtResource("2_str04")
+volume_db = 1.0
+unit_size = 20.0
+pitch_scale = 0.6
+max_distance = 50.0
+bus = &"Efectos"
+
+[node name="Ataque" type="AudioStreamPlayer3D" parent="." unique_id=185221237]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.00046253204, 0.028611898, -0.0035600662)
+stream = ExtResource("3_e5cpw")
+volume_db = 1.0
+unit_size = 20.0
+pitch_scale = 0.8
+max_distance = 50.0
+bus = &"Efectos"
+
+[node name="Aturdido" type="AudioStreamPlayer3D" parent="." unique_id=126521541]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.00046253204, 0.028611898, -0.0035600662)
+stream = ExtResource("4_q5ii3")
+volume_db = 1.0
+pitch_scale = 0.8
+max_distance = 50.0
+bus = &"Efectos"
+
+[node name="aturdidoparticles" parent="." unique_id=1462244252 instance=ExtResource("5_ovd8d")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.00046253204, 0.6952815, -0.0035600662)
+emitting = false
+amount = 4
+
+[node name="bat2" parent="." unique_id=901493468 instance=ExtResource("6_8hg3r")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.00046253204, 0.028611898, -0.0035600662)
+
+[node name="harmparticles" parent="." unique_id=342884844 instance=ExtResource("7_str04")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.76803946, 0)

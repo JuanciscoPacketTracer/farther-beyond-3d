@@ -1,0 +1,60 @@
+# Godot generated data
+.godot/
+*.import
+*.uid
+
+# Exported builds and signing files
+*.apk
+*.aab
+*.exe
+*.pck
+*.zip
+*.idsig
+
+# Temporary/editor files
+*.tmp
+*.bak
+.vscode/
+
+# Resource folders excluded from the repository
+/modelos/
+/Musica/
+/textures/
+/Animaciones/
+/Character (Mannequin)/
+/FRAMES/
+
+# Audio
+*.aac
+*.flac
+*.mp3
+*.ogg
+*.wav
+*.m4a
+
+# Images and textures
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.bmp
+*.tif
+*.tiff
+*.exr
+*.hdr
+
+# 3D models and source assets
+*.blend
+*.fbx
+*.gltf
+*.glb
+*.obj
+*.dae
+*.stl
+
+# Fonts
+*.ttf
+*.otf
+*.woff
+*.woff2

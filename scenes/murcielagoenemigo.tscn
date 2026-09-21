@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://mfawerekx8q"]
+
+[ext_resource type="PackedScene" uid="uid://b3w2vp0dbsfa4" path="res://addons/mob/bat/bat_model.glb" id="1_rk8kl"]
+[ext_resource type="Script" uid="uid://d0s42p2iah8aa" path="res://scripts/murcielagoenemigo.gd" id="1_x0lcx"]
+[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://addons/mob/mob_ko.wav" id="3_ow3ck"]
+[ext_resource type="AudioStream" uid="uid://rj4qhd72b1my" path="res://PRSFX- Pound.ogg" id="4_tuffm"]
+[ext_resource type="AudioStream" uid="uid://kg6w7vvt3qu2" path="res://PRSFX- Confused.ogg" id="5_ef8u6"]
+[ext_resource type="PackedScene" uid="uid://b2e527wi685x6" path="res://Particulas/efectoaturdido.tscn" id="6_3m3sj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x0lcx"]
+radius = 0.355
+
+[node name="bat" type="RigidBody3D" unique_id=948471767]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 0.2
+angular_damp = 0.1
+script = ExtResource("1_x0lcx")
+
+[node name="bat_model" parent="." unique_id=1243725470 instance=ExtResource("1_rk8kl")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Skeleton3D" parent="bat_model/Armature" index="0"]
+bones/0/position = Vector3(0, 0.017279873, 0)
+bones/1/rotation = Quaternion(0.10063244, 0.06236031, -0.6748425, 0.72840375)
+bones/2/rotation = Quaternion(0.12681301, 0.048354834, 0.35104525, 0.9264705)
+bones/3/rotation = Quaternion(0.16773398, 0.11149589, 0.3344765, 0.9206299)
+bones/4/rotation = Quaternion(0.10063244, -0.06236031, 0.6748425, 0.72840375)
+bones/5/rotation = Quaternion(0.12681301, -0.048354834, -0.35104525, 0.9264705)
+bones/6/rotation = Quaternion(0.16773398, -0.11149589, -0.3344765, 0.9206299)
+bones/7/position = Vector3(0.1309921, -0.22739176, -0.087851465)
+bones/7/rotation = Quaternion(0.26196837, 0.08345512, 0.26575127, 0.9240044)
+bones/8/rotation = Quaternion(3.5711782e-08, 0.69625765, 0.717792, 2.232721e-08)
+bones/10/position = Vector3(-0.1309921, -0.22739176, -0.087851465)
+bones/10/rotation = Quaternion(0.26196837, -0.083455116, -0.26575127, 0.9240044)
+bones/11/rotation = Quaternion(2.3419767e-08, 0.6962577, 0.7177919, 3.568997e-08)
+
+[node name="AnimationPlayer" parent="bat_model" index="1"]
+autoplay = &"Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=467024228]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_x0lcx")
+
+[node name="chillido" type="AudioStreamPlayer3D" parent="." unique_id=1559713169]
+stream = ExtResource("3_ow3ck")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Ataque" type="AudioStreamPlayer3D" parent="." unique_id=1944699107]
+stream = ExtResource("4_tuffm")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Aturdido" type="AudioStreamPlayer3D" parent="." unique_id=26125501]
+stream = ExtResource("5_ef8u6")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=144456415]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=361016]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_x0lcx")
+
+[node name="aturdidoparticles" parent="." unique_id=1625533882 instance=ExtResource("6_3m3sj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6666696, 0)
+emitting = false
+amount = 4
+
+[editable path="bat_model"]
