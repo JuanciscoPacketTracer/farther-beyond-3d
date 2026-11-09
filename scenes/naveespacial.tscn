@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://dvd8706n4csfl"]
 
 [ext_resource type="Script" uid="uid://dydknsk74worb" path="res://scripts/naveespacial.gd" id="1_6naix"]
+[ext_resource type="PackedScene" uid="uid://dldl54ehgcemp" path="res://scenes/disparo.tscn" id="2_2yukv"]
 [ext_resource type="PackedScene" uid="uid://bfcattyext8cn" path="res://modelonave.tscn" id="2_uu8x6"]
 [ext_resource type="PackedScene" uid="uid://d38no6qhnjaky" path="res://Particulas/propulsores.tscn" id="3_uu8x6"]
 [ext_resource type="AudioStream" uid="uid://1vf1x8bb4dxr" path="res://Musica/enginehum3.ogg" id="4_4xlan"]
-[ext_resource type="PackedScene" uid="uid://dldl54ehgcemp" path="res://scenes/disparo.tscn" id="5_qcfhn"]
 [ext_resource type="AudioStream" uid="uid://cynyecddpajnv" path="res://Musica/alienshoot1.wav" id="6_kn0qs"]
 [ext_resource type="AudioStream" uid="uid://begrjr3hbcgfr" path="res://Musica/retro_rocket.wav" id="7_akmf5"]
+[ext_resource type="Texture2D" uid="uid://dlow0njd662k6" path="res://buttons/btnBoost0.png" id="8_cu3aa"]
+[ext_resource type="Texture2D" uid="uid://c4fb1v6twxex" path="res://buttons/btnBoost1.png" id="9_2yukv"]
+[ext_resource type="Texture2D" uid="uid://22kj7kf13s0v" path="res://buttons/btnAttack0.png" id="10_g6sdo"]
+[ext_resource type="Texture2D" uid="uid://cq0hn5s320vca" path="res://buttons/btnAttack1.png" id="11_tnijv"]
+[ext_resource type="Script" uid="uid://i6vu5vi1jcu0" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="12_joystick"]
+[ext_resource type="Script" uid="uid://sbg7t2d614b1" path="res://scenes/healthbar.gd" id="13_g6sdo"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4xlan"]
 points = PackedVector3Array(1.5326642, 1.5680342, 1.6317047, 0.843169, 0.26531422, 1.0952381, 0.9197545, 0.26531422, 1.0952381, 0.7880128, 1.13578, 1.0566212, 1.5326642, 1.4913962, 1.401753, 1.6093998, 0.9549295, 1.5549841, 0.843169, 0.34207982, 1.2485743, 0.9197545, 1.1082057, 1.3251898, 1.379418, 0.9549295, 1.5549841, 1.5326642, 0.8785464, 1.401753, 0.9964151, 1.1082057, 1.0952381, 1.6093998, 1.5680342, 1.4783685, 0.9964151, 0.57199407, 1.0952381, 0.843169, 1.1082057, 1.2485743, 1.5326642, 0.8785464, 1.5549841, 1.6093998, 1.2614818, 1.6317047, 0.9964151, 0.34207982, 1.2485743, 1.379418, 1.4913962, 1.401753, 1.379418, 1.4913962, 1.5549841, 1.6093998, 0.9549295, 1.4783685, 1.6093998, 1.5680342, 1.6317047, 0.9197545, 0.9549295, 1.3251898, 1.5326642, 1.2614818, 1.6317047, 1.4560035, 0.8785464, 1.5549841, 0.843169, 0.26531422, 1.1719587)
@@ -34,9 +40,24 @@ points = PackedVector3Array(0.30646238, -2.0337908, 0.55877143, -0.45973855, -0.
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6naix"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpccp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svicy"]
+bg_color = Color(0.23529412, 0.6784314, 0.6313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpccp"]
+bg_color = Color(1, 0.5803922, 1, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27450982)
+shadow_offset = Vector2(0, 1)
+
 [node name="naveespacial" type="CharacterBody3D" unique_id=1596589114]
 script = ExtResource("1_6naix")
-bullet_scene = ExtResource("5_qcfhn")
+bullet_scene = ExtResource("2_2yukv")
+game_over_scene = "uid://brcrrwio3qvqr"
 
 [node name="Sketchfab_Scene" parent="." unique_id=1321065164 instance=ExtResource("2_uu8x6")]
 
@@ -126,3 +147,82 @@ volume_db = 0.05
 unit_size = 3.0
 pitch_scale = 0.8
 bus = &"Efectos"
+
+[node name="ui_buttons" type="CanvasLayer" parent="." unique_id=460595434]
+process_mode = 4
+visible = false
+
+[node name="buttonBoost" type="TouchScreenButton" parent="ui_buttons" unique_id=1463220458]
+position = Vector2(994, 361)
+texture_normal = ExtResource("8_cu3aa")
+texture_pressed = ExtResource("9_2yukv")
+action = "boost"
+visibility_mode = 1
+
+[node name="buttonAttack" type="TouchScreenButton" parent="ui_buttons" unique_id=1069078638]
+position = Vector2(916, 472)
+texture_normal = ExtResource("10_g6sdo")
+texture_pressed = ExtResource("11_tnijv")
+action = "shoot"
+visibility_mode = 1
+
+[node name="JoystickShip" type="Control" parent="ui_buttons" unique_id=325236192]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = -225.0
+offset_right = 282.0
+offset_bottom = -50.0
+grow_vertical = 0
+pivot_offset = Vector2(87.5, 87.5)
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("12_joystick")
+joystick_radius = 87.5
+joystick_mode = 1
+"Colors - D-Pad" = null
+"Textures - D-Pad" = null
+Cardinals = null
+Diagonals = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=209406916]
+
+[node name="healthbar" type="ProgressBar" parent="CanvasLayer" unique_id=1651419478]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -276.0
+offset_top = -90.0
+offset_right = 224.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxEmpty_xpccp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_svicy")
+step = 1.0
+value = 10.0
+show_percentage = false
+script = ExtResource("13_g6sdo")
+
+[node name="damagebar" type="ProgressBar" parent="CanvasLayer/healthbar" unique_id=1049647740]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_xpccp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xpccp")
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="CanvasLayer/healthbar" unique_id=675344228]
+wait_time = 0.4
+one_shot = true

@@ -4,29 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dvd8706n4csfl" path="res://scenes/naveespacial.tscn" id="2_8p3tp"]
 [ext_resource type="PackedScene" uid="uid://bc1twedi4t407" path="res://pausa.tscn" id="3_6ce1m"]
 [ext_resource type="Texture2D" uid="uid://c2v7jvuri8rou" path="res://textures/NightSkyHDRI003_4K_HDR.exr" id="4_t7tbf"]
-[ext_resource type="PackedScene" uid="uid://dsbbr8allvm7d" path="res://scenes/bat_3.tscn" id="5_jjywt"]
+[ext_resource type="PackedScene" uid="uid://cv54dvcj42aap" path="res://characters/xenobat/xenobatenemy.tscn" id="5_t7tbf"]
 [ext_resource type="PackedScene" uid="uid://dc83jnkq5ku7v" path="res://scenes/rockespacialcreo.tscn" id="6_0mhbv"]
 [ext_resource type="Texture2D" uid="uid://ge2f8yk6w7gb" path="res://textures/image (13).png" id="7_6ce1m"]
 [ext_resource type="Texture2D" uid="uid://bx1nl72821yuf" path="res://wall.png" id="8_t7tbf"]
 [ext_resource type="Script" uid="uid://d3vjta7rc2ry4" path="res://scenes/areaespacio.gd" id="9_t7tbf"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i5arm"]
-panorama = ExtResource("4_t7tbf")
-
-[sub_resource type="Sky" id="Sky_78ob3"]
-sky_material = SubResource("PanoramaSkyMaterial_i5arm")
-
-[sub_resource type="Environment" id="Environment_wc5p8"]
-background_mode = 2
-background_color = Color(0.40921056, 0.77995855, 0.84808517, 1)
-sky = SubResource("Sky_78ob3")
-ambient_light_source = 3
-ambient_light_color = Color(0, 0, 0.29803923, 1)
-ambient_light_sky_contribution = 0.5
-tonemap_mode = 2
-glow_enabled = true
-fog_height = -0.4
-fog_height_density = 0.3
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i5arm"]
 
@@ -58,154 +40,343 @@ albedo_texture = ExtResource("8_t7tbf")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jjywt"]
 size = Vector3(36.31067, 28.176758, 19.729736)
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_t7tbf"]
+panorama = ExtResource("4_t7tbf")
+
+[sub_resource type="Sky" id="Sky_78ob3"]
+sky_material = SubResource("PanoramaSkyMaterial_t7tbf")
+
+[sub_resource type="Environment" id="Environment_jjywt"]
+background_mode = 2
+background_color = Color(0.40921056, 0.77995855, 0.84808517, 1)
+sky = SubResource("Sky_78ob3")
+ambient_light_source = 3
+ambient_light_color = Color(0, 0, 0.29803923, 1)
+ambient_light_sky_contribution = 0.3
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.8
+glow_bloom = 0.5
+fog_enabled = true
+fog_light_energy = 0.14
+fog_density = 0.005
+fog_sky_affect = 0.0
+fog_height = -0.4
+fog_height_density = 0.3
+
 [node name="Node3D" type="Node3D" unique_id=761707273]
 script = ExtResource("1_iu842")
 
 [node name="naveespacial" parent="." unique_id=497456439 groups=["player"] instance=ExtResource("2_8p3tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 44.505363, -422.43787)
+boost_speed = 20.0
+rotation_speed = 2.5
 
 [node name="Pausa" parent="." unique_id=356175888 instance=ExtResource("3_6ce1m")]
 process_mode = 3
 visible = false
 z_index = 10
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=54740231]
-environment = SubResource("Environment_wc5p8")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=835701766]
-transform = Transform3D(-0.59902364, -0.5221557, 0.6070619, 0, 0.75813437, 0.6520984, -0.80073136, 0.39062238, -0.4541404, -184.93073, 758.4524, -694.2671)
-shadow_enabled = true
-directional_shadow_max_distance = 274.0
-sky_mode = 1
-
 [node name="Enemigos" type="Node3D" parent="." unique_id=843229566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 273.1451)
 
-[node name="bat3" parent="Enemigos" unique_id=1081876768 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.646164, 30, -390.03986)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat" parent="Enemigos" unique_id=1603546405 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.701511, 45.379005, -208.79042)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat7" parent="Enemigos" unique_id=667929065 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.301538, 30, -390.03986)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat2" parent="Enemigos" unique_id=2095517985 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.783615, 17.949396, -304.15802)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat6" parent="Enemigos" unique_id=384148461 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.97574, 30, -390.03986)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat3" parent="Enemigos" unique_id=1121913166 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.683924, -399.92517)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat5" parent="Enemigos" unique_id=651008392 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.366985, 30, -111.162796)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat7" parent="Enemigos" unique_id=1280929145 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.091896, 63.41459, -323.90717)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat4" parent="Enemigos" unique_id=243295112 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3824, 71.92843, -16.768204)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat10" parent="Enemigos" unique_id=448231047 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.783615, 17.949396, -270.30902)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat2" parent="Enemigos" unique_id=2120644164 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9127684, 71.92843, -16.768204)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat11" parent="Enemigos" unique_id=1592036006 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.683924, -270.30902)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat" parent="Enemigos" unique_id=361036896 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9897, 71.92843, -16.768204)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat4" parent="Enemigos" unique_id=155179741 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.783615, 36.66903, -269.0473)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat8" parent="Enemigos" unique_id=1982607372 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.646164, 48.281555, 42)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat5" parent="Enemigos" unique_id=821597557 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.403557, -364.81445)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat9" parent="Enemigos" unique_id=1274913772 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.301538, 48.281555, 99.25597)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat8" parent="Enemigos" unique_id=122674270 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.091896, 82.134224, -288.79645)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat10" parent="Enemigos" unique_id=1943126532 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.97574, 48.281555, 99.25597)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat12" parent="Enemigos" unique_id=1877147676 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.783615, 36.66903, -235.19829)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat11" parent="Enemigos" unique_id=731421333 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.366985, 48.281555, 99.25597)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat16" parent="Enemigos" unique_id=213817102 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.403557, -235.19829)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat12" parent="Enemigos" unique_id=1530632083 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3824, 48.281555, 42)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat13" parent="Enemigos" unique_id=584714035 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.091896, 49.68006, -133.72937)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat13" parent="Enemigos" unique_id=935214482 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9127684, 48.281555, 42)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
+[node name="Xenobat14" parent="Enemigos" unique_id=1141953593 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.691719, 49.68006, -133.72937)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
-[node name="bat14" parent="Enemigos" unique_id=1708930111 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9897, 48.281555, 42)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
-
-[node name="bat15" parent="Enemigos" unique_id=407982856 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.282425, 39.63652, 42)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
-
-[node name="bat16" parent="Enemigos" unique_id=941557935 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.230125, 39.63652, 42)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
-
-[node name="bat17" parent="Enemigos" unique_id=881677462 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.04715, 39.63652, 42)
-detection_radius = 30.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
-max_health = 20
-
-[node name="bat20" parent="Enemigos" unique_id=1867521479 instance=ExtResource("5_jjywt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.01582, 39.63652, 42)
-detection_radius = 20.0
-min_chillido_interval = 4.0
-max_chillido_interval = 8.0
+[node name="Xenobat15" parent="Enemigos" unique_id=649540934 instance=ExtResource("5_t7tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.091896, 63.41459, -133.72937)
+max_health = null
+damage = null
+chase_speed = null
+roam_speed = null
+detection_radius = null
+stun_time = null
+rebound_force = null
+knockback_friction = null
+post_stun_grace = null
+roam_move_time_min = null
+roam_move_time_max = null
+roam_pause_time_min = null
+roam_pause_time_max = null
+anim_idle = null
+anim_move = null
+ambient_interval_min = null
+ambient_interval_max = null
+death_delay = null
 
 [node name="Rocas" type="Node3D" parent="." unique_id=766671158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 85.92829)
 
 [node name="CharacterBody3D" parent="Rocas" unique_id=300095060 instance=ExtResource("6_0mhbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.267304, 31, 0)
@@ -263,6 +434,38 @@ rock_scale = 50.0
 rock_speed = 10.0
 health = 20.0
 
+[node name="CharacterBody3D19" parent="Rocas" unique_id=1990954484 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.740017, 40.417915, -419.9364)
+rock_scale = 10.0
+rock_speed = 10.0
+health = 4.0
+
+[node name="CharacterBody3D20" parent="Rocas" unique_id=1374721992 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.103916, 59.091007, -173.66685)
+rock_scale = 25.0
+
+[node name="CharacterBody3D21" parent="Rocas" unique_id=1984127497 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.653828, 59.091007, -173.66685)
+rock_scale = 50.0
+rock_speed = 10.0
+health = 20.0
+
+[node name="CharacterBody3D22" parent="Rocas" unique_id=1089130391 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.103916, 59.091007, -166.43996)
+rock_scale = 15.0
+rock_speed = 10.0
+health = 6.0
+
+[node name="CharacterBody3D23" parent="Rocas" unique_id=115856208 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.103916, 83.57438, -67.22417)
+rock_scale = 25.0
+
+[node name="CharacterBody3D24" parent="Rocas" unique_id=504876284 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.653828, 83.57438, -67.22417)
+rock_scale = 50.0
+rock_speed = 10.0
+health = 20.0
+
 [node name="CharacterBody3D12" parent="Rocas" unique_id=774251097 instance=ExtResource("6_0mhbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.57663, 74.15646, 27.1409)
 rock_scale = 15.0
@@ -287,6 +490,33 @@ health = 6.0
 
 [node name="CharacterBody3D4" parent="Rocas" unique_id=1895951719 instance=ExtResource("6_0mhbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.267304, 49.579098, -156.37067)
+rock_scale = 40.0
+health = 16.0
+
+[node name="CharacterBody3D25" parent="Rocas" unique_id=1030531735 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.267304, 49.719635, 35.110733)
+
+[node name="CharacterBody3D26" parent="Rocas" unique_id=547162249 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.267304, 49.719635, -304.9144)
+
+[node name="CharacterBody3D27" parent="Rocas" unique_id=343111091 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.57663, 68.39273, -44.191055)
+rock_scale = 15.0
+rock_speed = 10.0
+health = 6.0
+
+[node name="CharacterBody3D28" parent="Rocas" unique_id=568476786 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.653828, 77.81064, -138.55612)
+rock_scale = 50.0
+rock_speed = 10.0
+health = 20.0
+
+[node name="CharacterBody3D29" parent="Rocas" unique_id=434848232 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.57663, 92.8761, -20.204872)
+rock_scale = 25.0
+
+[node name="CharacterBody3D30" parent="Rocas" unique_id=485571878 instance=ExtResource("6_0mhbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.267304, 68.29874, -121.25993)
 rock_scale = 40.0
 health = 16.0
 
@@ -642,5 +872,15 @@ script = ExtResource("9_t7tbf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="areaespacio" unique_id=1444168199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.569338, 41.17494, 197.27591)
 shape = SubResource("BoxShape3D_jjywt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=143550005]
+environment = SubResource("Environment_jjywt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1192260495]
+transform = Transform3D(1, 0, 0, 0, -0.99337274, -0.11493727, 0, 0.11493727, -0.99337274, 0, 175.70798, -461.07645)
+light_color = Color(1, 1, 0.64705884, 1)
+light_energy = 2.0
+light_indirect_energy = 2.0
+shadow_enabled = true
 
 [connection signal="body_entered" from="areaespacio" to="areaespacio" method="_on_body_entered"]

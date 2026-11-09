@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://c1tj7f5ttg1bm"]
+
+[ext_resource type="PackedScene" uid="uid://b3w1ypr776owq" path="res://characters/xenobat/xenobat.blend" id="1_bww4x"]
+[ext_resource type="Texture2D" uid="uid://thby002cpnli" path="res://characters/xenobat/textures/antena.png" id="2_p0iew"]
+[ext_resource type="Texture2D" uid="uid://bs0e2je6b7rhp" path="res://characters/xenobat/textures/body.png" id="3_kfm12"]
+[ext_resource type="Texture2D" uid="uid://bpqtcdevn788b" path="res://characters/xenobat/textures/eye.png" id="4_6oh62"]
+[ext_resource type="Texture2D" uid="uid://bw4in1w62g7hc" path="res://characters/xenobat/textures/feet.png" id="5_466f5"]
+[ext_resource type="Texture2D" uid="uid://dj2l52ld0t2yt" path="res://characters/xenobat/textures/snout.png" id="6_u54uj"]
+[ext_resource type="Texture2D" uid="uid://coo7xpoht2eig" path="res://characters/xenobat/textures/wingleft.png" id="7_4blpt"]
+[ext_resource type="Texture2D" uid="uid://qykvob6xobwy" path="res://characters/xenobat/textures/wingright.png" id="8_67yiy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4k6al"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("2_p0iew")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n50v8"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("2_p0iew")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxf1s"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_kfm12")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m07yb"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("4_6oh62")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nephp"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("4_6oh62")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5ks7"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("4_6oh62")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvtkn"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("5_466f5")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58xk6"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("5_466f5")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce4u0"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("6_u54uj")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehmbg"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("7_4blpt")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgxlt"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("8_67yiy")
+texture_filter = 0
+
+[node name="xenobat" unique_id=192775475 instance=ExtResource("1_bww4x")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1671373543) index="0" unique_id=1047264211]
+bones/0/position = Vector3(-3.607531e-13, 0.079485156, 0.04930958)
+bones/0/rotation = Quaternion(0.005538081, -2.1590478e-05, 0.0038943582, 0.99997705)
+bones/2/rotation = Quaternion(-0.54730713, 0.01072608, 0.10382209, 0.8303981)
+bones/4/rotation = Quaternion(0.35462552, -0.521852, -0.17843956, 0.7550302)
+bones/6/rotation = Quaternion(-0.33342496, 0.18550658, -0.085049115, 0.92042476)
+bones/8/rotation = Quaternion(0.5049425, -0.038642365, -0.017953506, 0.8621006)
+bones/10/rotation = Quaternion(0.14459166, -0.008000185, 0.011929321, 0.9893872)
+bones/12/rotation = Quaternion(0.14885227, 0.044039212, 0.022590062, 0.98762)
+bones/13/position = Vector3(0.032871354, 0.33253342, 0.048991457)
+bones/13/rotation = Quaternion(0.020606808, -0.0060343295, -0.0012640635, 0.9997686)
+
+[node name="antenaleft" parent="Armature/Skeleton3D" index="0" unique_id=1909766494]
+surface_material_override/0 = SubResource("StandardMaterial3D_4k6al")
+
+[node name="antenaright" parent="Armature/Skeleton3D" index="1" unique_id=1543718247]
+surface_material_override/0 = SubResource("StandardMaterial3D_n50v8")
+
+[node name="body" parent="Armature/Skeleton3D" index="2" unique_id=1170997546]
+surface_material_override/0 = SubResource("StandardMaterial3D_dxf1s")
+
+[node name="eyeleft" parent="Armature/Skeleton3D" index="3" unique_id=1702801709]
+surface_material_override/0 = SubResource("StandardMaterial3D_m07yb")
+
+[node name="eyemiddle" parent="Armature/Skeleton3D" index="4" unique_id=1381375918]
+surface_material_override/0 = SubResource("StandardMaterial3D_nephp")
+
+[node name="eyeright" parent="Armature/Skeleton3D" index="5" unique_id=1891891334]
+surface_material_override/0 = SubResource("StandardMaterial3D_o5ks7")
+
+[node name="feet" parent="Armature/Skeleton3D" index="6" unique_id=1232331997]
+surface_material_override/0 = SubResource("StandardMaterial3D_yvtkn")
+
+[node name="feet_001" parent="Armature/Skeleton3D" index="7" unique_id=1950355927]
+surface_material_override/0 = SubResource("StandardMaterial3D_58xk6")
+
+[node name="snout" parent="Armature/Skeleton3D" index="8" unique_id=984752765]
+surface_material_override/0 = SubResource("StandardMaterial3D_ce4u0")
+
+[node name="wingleft" parent="Armature/Skeleton3D" index="9" unique_id=246478239]
+surface_material_override/0 = SubResource("StandardMaterial3D_ehmbg")
+
+[node name="wingright" parent="Armature/Skeleton3D" index="10" unique_id=248689375]
+surface_material_override/0 = SubResource("StandardMaterial3D_rgxlt")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=1814159802]
+autoplay = &"idle_001"

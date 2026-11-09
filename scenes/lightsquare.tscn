@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bhsxpitsqknuo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cw2ia"]
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_svicy"]
+material = SubResource("StandardMaterial3D_cw2ia")
+size = Vector3(1, 0.2, 1)
+
+[node name="lightsquare" type="MeshInstance3D" unique_id=1122131985]
+mesh = SubResource("BoxMesh_svicy")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=232597768]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.30595493, 0)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cllgd7p3om8jf"]
+
+[ext_resource type="PackedScene" uid="uid://bfngnax3rvicf" path="res://characters/toadli/Toadli.glb" id="1_lrqrs"]
+
+[node name="Toadli" unique_id=852517571 instance=ExtResource("1_lrqrs")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(874302437) index="0" unique_id=1639563228]
+bones/0/position = Vector3(0, 0, 0)
+bones/1/rotation = Quaternion(-0.004530774, -0.00013194159, -0.0045503927, 0.99997944)
+bones/2/rotation = Quaternion(0.03176797, 0.91562015, 0.39058617, 0.08984986)
+bones/3/rotation = Quaternion(0.8694094, 0.06320971, -0.2887325, -0.39593616)
+bones/4/rotation = Quaternion(-0.40306225, 0.002769343, 0.006258393, 0.91514695)
+bones/5/rotation = Quaternion(0.852445, -0.13739762, 0.27367303, -0.4237481)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1132183849]
+autoplay = &"Idle"

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://utnvxjelva5m"]
+
+[ext_resource type="PackedScene" uid="uid://rdma7f62ygkj" path="res://characters/xenobat/xenobat.blend" id="1_anfc3"]
+[ext_resource type="Texture2D" uid="uid://dgi0q3378i034" path="res://characters/xenobat/xenobat/body.png" id="2_1d01o"]
+[ext_resource type="Texture2D" uid="uid://bjpr676anml2q" path="res://characters/xenobat/xenobat/eye.png" id="3_6rt2m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auapa"]
+transparency = 1
+albedo_texture = ExtResource("2_1d01o")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28cr5"]
+transparency = 1
+albedo_texture = ExtResource("3_6rt2m")
+texture_filter = 0
+
+[node name="xenobat" unique_id=1924435948 instance=ExtResource("1_anfc3")]
+
+[node name="body" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1944040800) index="2" unique_id=533949185]
+surface_material_override/0 = SubResource("StandardMaterial3D_auapa")
+
+[node name="eyeleft" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1944040800) index="3" unique_id=972999597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07402027, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_28cr5")

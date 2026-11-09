@@ -37,7 +37,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/virtual_joystick_DX/plugin.cfg")
 
 [global_group]
 
@@ -179,6 +179,10 @@ shoot={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -187,4 +191,12 @@ shoot={
 [rendering]
 
 rendering_device/staging_buffer/max_size_mb=512
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+textures/default_filters/use_nearest_mipmap_filter=true
+anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/msaa_3d=2
+textures/decals/filter=0
+textures/light_projectors/filter=0
+anti_aliasing/quality/screen_space_aa=1

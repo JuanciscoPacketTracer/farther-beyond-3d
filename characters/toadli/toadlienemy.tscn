@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dstocg3j671wx"]
+
+[ext_resource type="Script" uid="uid://cx403lo0hh6bw" path="res://scripts/walking_enemy.gd" id="1_5yw3i"]
+[ext_resource type="PackedScene" uid="uid://cllgd7p3om8jf" path="res://characters/toadli/toadli.tscn" id="2_xa4go"]
+[ext_resource type="PackedScene" uid="uid://b2e527wi685x6" path="res://Particulas/efectoaturdido.tscn" id="3_iks7e"]
+[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://addons/mob/mob_ko.wav" id="4_y1q8y"]
+[ext_resource type="AudioStream" uid="uid://rj4qhd72b1my" path="res://PRSFX- Pound.ogg" id="5_uqypt"]
+[ext_resource type="AudioStream" uid="uid://kg6w7vvt3qu2" path="res://PRSFX- Confused.ogg" id="6_hjnq0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xpccp"]
+size = Vector3(0.082458496, 2.3354492, 1.4974365)
+
+[node name="Toadli" type="RigidBody3D" unique_id=520515708 node_paths=PackedStringArray("visual", "animation_player", "harm_particles", "stun_sound", "attack_sound")]
+script = ExtResource("1_5yw3i")
+visual = NodePath("Toadli")
+animation_player = NodePath("Toadli/AnimationPlayer")
+harm_particles = NodePath("harmparticles")
+anim_idle = &"Idle"
+anim_move = &"Walk"
+stun_sound = NodePath("Aturdido")
+attack_sound = NodePath("Ataque")
+
+[node name="Toadli" parent="." unique_id=852517571 instance=ExtResource("2_xa4go")]
+
+[node name="harmparticles" parent="." unique_id=1601035601 instance=ExtResource("3_iks7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6666696, 0)
+emitting = false
+amount = 4
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1483991692]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=1378669299]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.0036627948, 1.1063768, -0.008117676)
+shape = SubResource("BoxShape3D_xpccp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=183891634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0036627948, 1.1063768, -0.008117676)
+shape = SubResource("BoxShape3D_xpccp")
+
+[node name="chillido" type="AudioStreamPlayer3D" parent="." unique_id=675528307]
+stream = ExtResource("4_y1q8y")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Ataque" type="AudioStreamPlayer3D" parent="." unique_id=2085430513]
+stream = ExtResource("5_uqypt")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Aturdido" type="AudioStreamPlayer3D" parent="." unique_id=1670189985]
+stream = ExtResource("6_hjnq0")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[editable path="Toadli"]

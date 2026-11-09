@@ -2,22 +2,17 @@ extends CanvasLayer
 
 @onready var hearts_container: HBoxContainer = $hearts_container
 @onready var heart_template: MarginContainer = $hearts_container/heart_template
-
 var current_health := 0
 var max_health := 0
-
 func _ready():
 	heart_template.visible = false
-
 func update_health(new_health: int, new_max: int = -1, pulse: bool = false):
 	if new_max != -1:
 		max_health = new_max
 		_update_max_hearts()
-
 	new_health = clamp(new_health, 0, max_health)
 	var old_health = current_health
 	current_health = new_health
-
 	_update_heart_states(old_health, pulse)
 
 func _update_max_hearts():

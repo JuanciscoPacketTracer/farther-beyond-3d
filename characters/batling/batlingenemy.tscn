@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://70quy33f1cnr"]
+
+[ext_resource type="Script" uid="uid://bgyp88e43858g" path="res://scripts/flying_enemy.gd" id="1_lln87"]
+[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://addons/mob/mob_ko.wav" id="2_5dowd"]
+[ext_resource type="AudioStream" uid="uid://rj4qhd72b1my" path="res://PRSFX- Pound.ogg" id="3_ivkpq"]
+[ext_resource type="AudioStream" uid="uid://kg6w7vvt3qu2" path="res://PRSFX- Confused.ogg" id="4_f6ctk"]
+[ext_resource type="PackedScene" uid="uid://b2e527wi685x6" path="res://Particulas/efectoaturdido.tscn" id="5_tmgkf"]
+[ext_resource type="PackedScene" uid="uid://ct00ulfdu4bsl" path="res://characters/batling/batling.tscn" id="6_lln87"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x0lcx"]
+radius = 0.355
+
+[node name="batling" type="RigidBody3D" unique_id=1603546405 node_paths=PackedStringArray("visual", "animation_player", "harm_particles", "stun_sound", "attack_sound", "ambient_sound") groups=["enemigo"]]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 0.2
+angular_damp = 0.1
+script = ExtResource("1_lln87")
+visual = NodePath("batling")
+animation_player = NodePath("batling/AnimationPlayer")
+harm_particles = NodePath("harmparticles")
+stun_sound = NodePath("Aturdido")
+attack_sound = NodePath("Ataque")
+ambient_sound = NodePath("chillido")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1019000723]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.21921122, 0)
+shape = SubResource("SphereShape3D_x0lcx")
+
+[node name="chillido" type="AudioStreamPlayer3D" parent="." unique_id=664541074]
+stream = ExtResource("2_5dowd")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Ataque" type="AudioStreamPlayer3D" parent="." unique_id=93003234]
+stream = ExtResource("3_ivkpq")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Aturdido" type="AudioStreamPlayer3D" parent="." unique_id=1988569597]
+stream = ExtResource("4_f6ctk")
+unit_size = 20.0
+max_distance = 20.0
+bus = &"Efectos"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1230805084]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=2039492629]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0.23053682, 0)
+shape = SubResource("SphereShape3D_x0lcx")
+
+[node name="harmparticles" parent="." unique_id=1906984060 instance=ExtResource("5_tmgkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6666696, 0)
+emitting = false
+amount = 4
+
+[node name="batling" parent="." unique_id=2132862665 instance=ExtResource("6_lln87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7482393, 0.6409538)
+
+[node name="AnimationPlayer" parent="batling" index="2" unique_id=1201811681]
+autoplay = &"idle"
+
+[editable path="batling"]

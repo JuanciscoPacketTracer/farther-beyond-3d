@@ -1,5 +1,17 @@
 extends CharacterBody3D
+@onready var button_boost: TouchScreenButton = $ui_buttons/buttonBoost
+@onready var button_attack: TouchScreenButton = $ui_buttons/buttonAttack
+@onready var joystick_ship: VirtualJoystickDX = $ui_buttons/JoystickShip
+signal health_changed(current: int, maximum: int)
+signal died
 
+@export var max_health: int = 10
+@export var invulnerability_time: float = 0.6
+@onready var health_bar: HealthBar = $CanvasLayer/healthbar
+
+var health: int
+var _invulnerable: bool = false
+var _dead: bool = false
 @onready var gun: Marker3D = $disparo_spawn
 @export var speed:=12.0
 @export var boost_speed:=36.0
@@ -25,6 +37,9 @@ func toggle_pause_state(is_paused: bool) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if is_paused else Input.MOUSE_MODE_CAPTURED
 
 func _ready():
+	health = max_health
+	health_changed.connect(func(c, m): health_bar.set_health(c))
+	health_bar.init_health(health, max_health)
 	_arm.add_excluded_object(self)
 	_current_zoom=_arm.spring_length
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
@@ -79,3 +94,45 @@ func _shoot():
 	shootsound.playing = true
 	b.global_position=gun.global_position
 	b.dir=global_transform.basis.z
+func take_damage(amount: float) -> void:
+	if _dead or _invulnerable:
+		return
+	health = maxi(health - int(ceil(amount)), 0)
+	health_changed.emit(health, max_health)
+	if health == 0:
+		_die()
+		return
+	_start_invulnerability()
+
+
+func heal(amount: int) -> void:
+	if _dead:
+		return
+	health = mini(health + amount, max_health)
+	health_changed.emit(health, max_health)
+
+
+func _start_invulnerability() -> void:
+	_invulnerable = true
+	await get_tree().create_timer(invulnerability_time).timeout
+	_invulnerable = false
+
+@export_file("*.tscn") var game_over_scene: String = "res://muerte.tscn"
+@export var death_delay: float = 1.0
+
+func _die() -> void:
+	if _dead:
+		return
+	_dead = true
+	velocity = Vector3.ZERO
+	set_physics_process(false)
+	propulsor.emitting = false
+	propulsor2.emitting = false
+	propulsorsonido.stop()
+	died.emit()
+
+	await get_tree().create_timer(death_delay).timeout
+
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().paused = false
+	get_tree().change_scene_to_file(game_over_scene)

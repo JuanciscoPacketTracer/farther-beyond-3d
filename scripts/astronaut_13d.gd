@@ -1,19 +1,22 @@
 extends CharacterBody3D
+@onready var button_action: TouchScreenButton = $ui_buttons/buttonAction
+@onready var button_jump: TouchScreenButton = $ui_buttons/buttonJump
+@onready var joystick_ship: VirtualJoystickDX = $ui_buttons/JoystickShip
+
 @export_group("Inventory")
 @export var inventory_data: InventoryData
 @export var equip_inventory_data: InventoryDataEquip
 var is_dead := false
 @export_group("Camera")
 @export_range(0.0001, 0.02) var mouse_sensitivity := 0.004
-@export var min_zoom := 1.0     # Minimum camera distance
-@export var max_zoom := 20.0    # Maximum camera distance
-@export var zoom_speed := 1.0   # Speed of zoom change
-@export var zoom_smoothing := 10.0 # Smoothness of zoom transition
+@export var min_zoom := 1.0 
+@export var max_zoom := 20.0 
+@export var zoom_speed := 1.0
+@export var zoom_smoothing := 10.0
 var max_health: int = 3
 var health: int = max_health
 signal toggle_inventory()
 var inventory_open = false
-
 @export_group("Movement")
 @export var move_speed := 4.0
 @export var sprint_speed := 14.0
@@ -21,7 +24,6 @@ var inventory_open = false
 @export var rotation_speed := 12.0
 @export var jump_impulse := 14.0
 
-# Camera State Variables (Roblox Style)
 var _is_right_click_held := false
 var _camera_input_direction := Vector2.ZERO
 var _current_zoom := 5.0 
@@ -30,7 +32,6 @@ var _gravity := -30.0
 var _paso_timer := 0.0
 var _paso_interval_base := 0.35
 var _was_on_floor := false
-
 @onready var edge_check: RayCast3D = $astronautskin/edge_check
 @onready var edge_top_check: RayCast3D = $astronautskin/edge_top_check
 var is_paused_menu_open = false
@@ -38,7 +39,6 @@ signal pause_toggled(is_open)
 var is_hanging = false
 var edge_grab_height = 1.8 
 var hang_gravity = -0.2
-
 @onready var hearts_hud: CanvasLayer = $ui_hearts
 @onready var pausa: Control = $"../Pausa"
 @onready var _camera_pivot: Node3D = %camerapivot
@@ -59,6 +59,7 @@ func exit_pause_menu():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pause_toggled.emit(false)
 func _ready() -> void:
+	$ui_buttons.visible = DisplayServer.is_touchscreen_available()
 	inventory_open = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	PlayerManager.player = self
@@ -104,7 +105,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		pause_toggled.emit(is_paused_menu_open)
 	if Input.is_action_just_pressed("interact"):
 		interact()
-
 func _process(delta: float) -> void:
 	if _spring_arm:
 		_spring_arm.spring_length = lerpf(_spring_arm.spring_length, _current_zoom, delta * zoom_smoothing)
@@ -118,7 +118,6 @@ func _physics_process(delta: float) -> void:
 	_camera_pivot.rotation.y += _camera_input_direction.x
 	_camera_pivot.rotation.z = 0.0
 	_camera_input_direction = Vector2.ZERO
-
 	var raw_input := Input.get_vector("move_left","move_right","move_up","move_down")
 	var forward := _camera.global_basis.z
 	var right := _camera.global_basis.x
@@ -126,7 +125,6 @@ func _physics_process(delta: float) -> void:
 	right.y = 0
 	forward = forward.normalized()
 	right = right.normalized()
-	
 	var move_direction := (forward * raw_input.y + right * raw_input.x).normalized()
 	var y_velocity := velocity.y
 	velocity.y = 0
@@ -160,10 +158,8 @@ func _physics_process(delta: float) -> void:
 		return
 	move_and_slide()
 	var on_floor_now = is_on_floor()
-
 	if move_direction.length() > 0.2:
 		_last_movement_direction = move_direction
-
 	if move_direction.length() > 0.1:
 		_skin.global_rotation.y = lerp_angle(
 			_skin.rotation.y,
@@ -231,7 +227,6 @@ func take_damage(amount: int):
 		hearts_hud.update_health(health, max_health)
 	if health <= 0:
 		die()
-
 func add_max_health(amount: int):
 	max_health += amount
 	health = max_health 

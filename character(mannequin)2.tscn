@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b7uxdpcixsar"]
+
+[ext_resource type="PackedScene" uid="uid://d36ws4pvj5g4j" path="res://Animaciones/Character(Mannequin)2.glb" id="1_m511b"]
+
+[node name="Character(Mannequin)2" unique_id=532970001 instance=ExtResource("1_m511b")]

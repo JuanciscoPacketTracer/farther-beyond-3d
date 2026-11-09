@@ -14,6 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://bnhpn1wraup6w" path="res://Particulas/efectocuracion.tscn" id="13_uwq42"]
 [ext_resource type="PackedScene" uid="uid://bpatcp2phqqlq" path="res://Particulas/efectoharm.tscn" id="14_60rl3"]
 [ext_resource type="PackedScene" uid="uid://c2w5ve7p66wjb" path="res://addons/player/sophia_skin/astronautskin.tscn" id="14_bs357"]
+[ext_resource type="Texture2D" uid="uid://cl013hu256ahn" path="res://buttons/btnAction0.png" id="15_gx80y"]
+[ext_resource type="Texture2D" uid="uid://d2vg1cqpokpi3" path="res://buttons/btnAction1.png" id="16_xftxj"]
+[ext_resource type="Texture2D" uid="uid://cnp6fhj110n2m" path="res://buttons/btnJump0.png" id="17_lxoes"]
+[ext_resource type="Texture2D" uid="uid://b0c4rt6ulex5w" path="res://buttons/btnJump1.png" id="18_q6jd8"]
+[ext_resource type="Script" uid="uid://i6vu5vi1jcu0" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="19_joystick"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqvu6"]
 radius = 0.32470703
@@ -85,21 +90,21 @@ shape = SubResource("CapsuleShape3D_xqvu6")
 
 [node name="camerapivot" type="Node3D" parent="." unique_id=1592566020]
 unique_name_in_owner = true
-position = Vector3(0, 1.5079248, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5079248, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="camerapivot" unique_id=299086264]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+collision_mask = 3
 shape = SubResource("SphereShape3D_xqvu6")
 spring_length = 8.0
 margin = 0.15
-collision_mask = 3
 
 [node name="Camera3D" type="Camera3D" parent="camerapivot/SpringArm3D" unique_id=855336674]
 unique_name_in_owner = true
 
 [node name="InteractRay" type="RayCast3D" parent="camerapivot/SpringArm3D/Camera3D" unique_id=727649101]
 transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 0, 0, 1, 3.5527137e-15, -2.3841858e-07, -2.9802322e-08)
-target_position = Vector3(0, -1, -10)
+target_position = Vector3(0, 0, -15)
 collision_mask = 4
 hit_from_inside = true
 collide_with_areas = true
@@ -190,9 +195,49 @@ transform = Transform3D(1, 7.1054274e-15, 0, -8.881784e-16, 0.19531286, 0.980740
 target_position = Vector3(0, -0.7, 0.7)
 collision_mask = 15
 
-[node name="edge_top_check" type="RayCast3D" parent="astronautskin"]
-position = Vector3(0, 1.75, -0.55)
+[node name="edge_top_check" type="RayCast3D" parent="astronautskin" unique_id=612029927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -0.55)
 target_position = Vector3(0, -2.2, 0)
 collision_mask = 15
+
+[node name="ui_buttons" type="CanvasLayer" parent="." unique_id=77555717]
+process_mode = 4
+visible = false
+
+[node name="buttonAction" type="TouchScreenButton" parent="ui_buttons" unique_id=341227900]
+position = Vector2(994, 361)
+texture_normal = ExtResource("15_gx80y")
+texture_pressed = ExtResource("16_xftxj")
+action = "interact"
+visibility_mode = 1
+
+[node name="buttonJump" type="TouchScreenButton" parent="ui_buttons" unique_id=1796900162]
+position = Vector2(916, 472)
+texture_normal = ExtResource("17_lxoes")
+texture_pressed = ExtResource("18_q6jd8")
+action = "jump"
+visibility_mode = 1
+
+[node name="JoystickShip" type="Control" parent="ui_buttons" unique_id=151280767]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 122.0
+offset_top = 472.0
+offset_right = 162.0
+offset_bottom = 512.0
+pivot_offset = Vector2(87.5, 87.5)
+mouse_filter = 2
+script = ExtResource("19_joystick")
+joystick_radius = 87.5
+joystick_mode = 1
+action_left = &"move_left"
+action_right = &"move_right"
+action_up = &"move_up"
+action_down = &"move_down"
+"Colors - D-Pad" = null
+"Textures - D-Pad" = null
+Cardinals = null
+Diagonals = null
 
 [connection signal="toggle_inventory" from="." to="." method="_on_toggle_inventory"]
