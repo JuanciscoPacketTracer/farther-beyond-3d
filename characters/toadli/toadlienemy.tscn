@@ -12,6 +12,9 @@ size = Vector3(0.082458496, 2.3354492, 1.4974365)
 
 [node name="Toadli" type="RigidBody3D" unique_id=520515708 node_paths=PackedStringArray("visual", "animation_player", "harm_particles", "stun_sound", "attack_sound")]
 script = ExtResource("1_5yw3i")
+chase_speed = 3.0
+roam_speed = 2.0
+detection_radius = 15.0
 visual = NodePath("Toadli")
 animation_player = NodePath("Toadli/AnimationPlayer")
 harm_particles = NodePath("harmparticles")

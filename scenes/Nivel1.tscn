@@ -39,6 +39,7 @@
 [ext_resource type="Script" uid="uid://b0uu5iy773gjk" path="res://scenes/falling_platform.gd" id="34_ony87"]
 [ext_resource type="PackedScene" uid="uid://bhsxpitsqknuo" path="res://scenes/lightsquare.tscn" id="35_r2pn2"]
 [ext_resource type="PackedScene" uid="uid://70quy33f1cnr" path="res://characters/batling/batlingenemy.tscn" id="39_5x5om"]
+[ext_resource type="PackedScene" uid="uid://cv54dvcj42aap" path="res://characters/xenobat/xenobatenemy.tscn" id="41_adc0r"]
 [ext_resource type="PackedScene" uid="uid://dstocg3j671wx" path="res://characters/toadli/toadlienemy.tscn" id="41_nqffp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_uaxme"]
@@ -2473,6 +2474,373 @@ transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, 
 libraries/ = SubResource("AnimationLibrary_78ob3")
 autoplay = &"MUEVELO"
 
+[node name="Plataformasmoviles4" type="Node3D" parent="." unique_id=690465373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.705585, 22.938633, 12.421879)
+
+[node name="Path3D3" type="Path3D" parent="Plataformasmoviles4" unique_id=554373844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.24356, 43.714233, 16.711773)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D3" unique_id=366423952]
+transform = Transform3D(-2.0859447e-07, 0.9993314, -0.03069412, 0.023710253, -0.030680837, -0.9992017, -0.9996144, -0.00072792696, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D3/PathFollow3D" unique_id=1029053754 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D3" unique_id=1454935315]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"muevelo"
+
+[node name="Path3D4" type="Path3D" parent="Plataformasmoviles4" unique_id=83216239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.10159, 43.714233, 16.711773)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D4" unique_id=175742773]
+transform = Transform3D(-2.0859414e-07, 0.9993322, -0.03069412, 0.023710215, -0.03068086, -0.9992017, -0.99961287, -0.00072792755, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D4/PathFollow3D" unique_id=2078976214 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D4" unique_id=259829433]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D5" type="Path3D" parent="Plataformasmoviles4" unique_id=1622576687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.10159, 43.714233, 59.33982)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D5" unique_id=1611437530]
+transform = Transform3D(-2.0859432e-07, 0.99933237, -0.03069412, 0.023710234, -0.030680865, -0.9992017, -0.9996137, -0.00072792766, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D5/PathFollow3D" unique_id=1836098791 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D5" unique_id=1765743623]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D6" type="Path3D" parent="Plataformasmoviles4" unique_id=385584369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.205505, 70.89963, 87.77275)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D6" unique_id=644655881]
+transform = Transform3D(-2.0859434e-07, 0.9993322, -0.03069412, 0.023710238, -0.03068086, -0.9992017, -0.9996138, -0.00072792755, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D6/PathFollow3D" unique_id=2068038122 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D6" unique_id=686754862]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D7" type="Path3D" parent="Plataformasmoviles4" unique_id=821713800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.04246, 70.89963, 87.77275)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D7" unique_id=1209713503]
+transform = Transform3D(-2.0859528e-07, 0.9993315, -0.03069412, 0.023710344, -0.030680839, -0.9992017, -0.9996183, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D7/PathFollow3D" unique_id=259020499 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D7" unique_id=168860032]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D8" type="Path3D" parent="Plataformasmoviles4" unique_id=370810357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.04246, 64.88593, 76.32318)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D8" unique_id=1925535822]
+transform = Transform3D(-2.085953e-07, 0.9993315, -0.03069412, 0.023710346, -0.030680839, -0.9992017, -0.99961835, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D8/PathFollow3D" unique_id=1256347364 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D8" unique_id=284154384]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D9" type="Path3D" parent="Plataformasmoviles4" unique_id=108292824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.54982, 60.714287, 60.424377)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D9" unique_id=100443726]
+transform = Transform3D(-2.0859531e-07, 0.9993315, -0.03069412, 0.023710346, -0.030680839, -0.9992017, -0.9996184, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D9/PathFollow3D" unique_id=780455662 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D9" unique_id=186051118]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D11" type="Path3D" parent="Plataformasmoviles4" unique_id=1299354922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.08668, 53.737534, 87.77275)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D11" unique_id=1922110090]
+transform = Transform3D(-2.085953e-07, 0.9993315, -0.03069412, 0.023710346, -0.030680839, -0.9992017, -0.99961835, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D11/PathFollow3D" unique_id=1056979583 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D11" unique_id=239629987]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D12" type="Path3D" parent="Plataformasmoviles4" unique_id=375945747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.08668, 47.72384, 76.32318)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D12" unique_id=1956898098]
+transform = Transform3D(-2.0859531e-07, 0.9993315, -0.03069412, 0.023710346, -0.030680839, -0.9992017, -0.9996184, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D12/PathFollow3D" unique_id=313588099 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D12" unique_id=1024626220]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D13" type="Path3D" parent="Plataformasmoviles4" unique_id=686049628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.59404, 43.552193, 60.424377)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D13" unique_id=2054146]
+transform = Transform3D(-2.0859531e-07, 0.9993315, -0.03069412, 0.023710348, -0.030680839, -0.9992017, -0.9996185, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D13/PathFollow3D" unique_id=560445134 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D13" unique_id=439149229]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D14" type="Path3D" parent="Plataformasmoviles4" unique_id=1394249839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.519264, 61.000443, 53.050495)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D14" unique_id=376286584]
+transform = Transform3D(-2.0859531e-07, 0.9993315, -0.03069412, 0.023710346, -0.030680839, -0.9992017, -0.9996184, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D14/PathFollow3D" unique_id=205662298 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D14" unique_id=526409420]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D15" type="Path3D" parent="Plataformasmoviles4" unique_id=1963435674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.519264, 54.986748, 41.600925)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D15" unique_id=326336662]
+transform = Transform3D(-2.0859531e-07, 0.9993315, -0.03069412, 0.023710348, -0.030680839, -0.9992017, -0.9996185, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D15/PathFollow3D" unique_id=1714146104 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D15" unique_id=716181955]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D16" type="Path3D" parent="Plataformasmoviles4" unique_id=1369269380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.02663, 50.8151, 25.702122)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D16" unique_id=425021175]
+transform = Transform3D(-2.0859532e-07, 0.9993315, -0.03069412, 0.02371035, -0.030680839, -0.9992017, -0.99961853, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D16/PathFollow3D" unique_id=749675225 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D16" unique_id=1004702083]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D17" type="Path3D" parent="Plataformasmoviles4" unique_id=1819562923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.50912, 61.000443, 53.050495)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D17" unique_id=1462903878]
+transform = Transform3D(-2.0859531e-07, 0.9993315, -0.03069412, 0.023710348, -0.030680839, -0.9992017, -0.9996185, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D17/PathFollow3D" unique_id=1190810952 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D17" unique_id=1341166311]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D18" type="Path3D" parent="Plataformasmoviles4" unique_id=1629954642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.50912, 54.986748, 41.600925)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D18" unique_id=1733107456]
+transform = Transform3D(-2.0859532e-07, 0.9993315, -0.03069412, 0.02371035, -0.030680839, -0.9992017, -0.99961853, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D18/PathFollow3D" unique_id=1723107747 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D18" unique_id=1790697059]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D19" type="Path3D" parent="Plataformasmoviles4" unique_id=1133467234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.01648, 50.8151, 25.702122)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D19" unique_id=990040027]
+transform = Transform3D(-2.0859534e-07, 0.9993315, -0.03069412, 0.023710351, -0.030680839, -0.9992017, -0.9996186, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D19/PathFollow3D" unique_id=202168480 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D19" unique_id=1324980535]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D20" type="Path3D" parent="Plataformasmoviles4" unique_id=1826886654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.63498, 71.50237, 53.050495)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D20" unique_id=39740244]
+transform = Transform3D(-2.0859532e-07, 0.9993315, -0.03069412, 0.02371035, -0.030680839, -0.9992017, -0.99961853, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D20/PathFollow3D" unique_id=1751821001 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D20" unique_id=1313456900]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D21" type="Path3D" parent="Plataformasmoviles4" unique_id=1418118909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.63498, 65.48868, 41.600925)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D21" unique_id=1998205474]
+transform = Transform3D(-2.0859534e-07, 0.9993315, -0.03069412, 0.023710351, -0.030680839, -0.9992017, -0.9996186, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D21/PathFollow3D" unique_id=226025439 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D21" unique_id=867322008]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D22" type="Path3D" parent="Plataformasmoviles4" unique_id=1183823222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.14234, 61.31703, 25.702122)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D22" unique_id=967577334]
+transform = Transform3D(-2.0859535e-07, 0.9993315, -0.03069412, 0.023710351, -0.030680839, -0.9992017, -0.99961865, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D22/PathFollow3D" unique_id=1110414284 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D22" unique_id=1010897943]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D23" type="Path3D" parent="Plataformasmoviles4" unique_id=470439038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.25795, 44.927143, 64.889496)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D23" unique_id=455692823]
+transform = Transform3D(-2.0859534e-07, 0.9993315, -0.03069412, 0.023710351, -0.030680839, -0.9992017, -0.9996186, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D23/PathFollow3D" unique_id=814484078 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D23" unique_id=2043085201]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D24" type="Path3D" parent="Plataformasmoviles4" unique_id=403373492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.25795, 38.91345, 53.43993)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D24" unique_id=805835259]
+transform = Transform3D(-2.0859535e-07, 0.9993315, -0.03069412, 0.023710351, -0.030680839, -0.9992017, -0.99961865, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D24/PathFollow3D" unique_id=1601335510 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D24" unique_id=1662029457]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D25" type="Path3D" parent="Plataformasmoviles4" unique_id=655872378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.76531, 34.741802, 37.541126)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D25" unique_id=1861073966]
+transform = Transform3D(-2.0859537e-07, 0.9993315, -0.03069412, 0.023710353, -0.030680839, -0.9992017, -0.9996187, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D25/PathFollow3D" unique_id=292729555 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D25" unique_id=1344864652]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D26" type="Path3D" parent="Plataformasmoviles4" unique_id=1655343040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.25795, 58.194904, 93.11772)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D26" unique_id=344957793]
+transform = Transform3D(-2.0859535e-07, 0.9993315, -0.03069412, 0.023710351, -0.030680839, -0.9992017, -0.99961865, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D26/PathFollow3D" unique_id=1333872542 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D26" unique_id=1125521907]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D27" type="Path3D" parent="Plataformasmoviles4" unique_id=388030049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.25795, 52.18121, 81.66815)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D27" unique_id=1299203849]
+transform = Transform3D(-2.0859537e-07, 0.9993315, -0.03069412, 0.023710353, -0.030680839, -0.9992017, -0.9996187, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D27/PathFollow3D" unique_id=725992729 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D27" unique_id=1450896904]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D28" type="Path3D" parent="Plataformasmoviles4" unique_id=1629092476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.76531, 48.009563, 65.76935)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D28" unique_id=234642578]
+transform = Transform3D(-2.0859538e-07, 0.9993315, -0.03069412, 0.023710355, -0.030680839, -0.9992017, -0.99961877, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D28/PathFollow3D" unique_id=269579107 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D28" unique_id=382623541]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
+[node name="Path3D10" type="Path3D" parent="Plataformasmoviles4" unique_id=254636140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.75564, 43.611637, 34.71154)
+curve = SubResource("Curve3D_uaxme")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Plataformasmoviles4/Path3D10" unique_id=362170817]
+transform = Transform3D(-2.0859531e-07, 0.9993315, -0.03069412, 0.023710348, -0.030680839, -0.9992017, -0.9996185, -0.000727927, -0.023700455, -1.3651733, -1.7264824, 7.4532814)
+
+[node name="CharacterBody3D" parent="Plataformasmoviles4/Path3D10/PathFollow3D" unique_id=1281767480 instance=ExtResource("22_oed2h")]
+transform = Transform3D(0.9997426, -0.02268734, -1.6515951e-08, -1.7429876e-08, -4.0085958e-08, -1.0000004, 0.022687346, 0.9997424, -4.0471104e-08, -0.0074043274, -3.386612, 5.668991)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformasmoviles4/Path3D10" unique_id=76617626]
+libraries/ = SubResource("AnimationLibrary_78ob3")
+autoplay = &"MUEVELO"
+
 [node name="Plataformasmoviles3" type="Node3D" parent="." unique_id=60617628]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61121, 6.7130165, 7.0725327)
 
@@ -3053,6 +3421,26 @@ death_delay = null
 
 [node name="Toadli" parent="Enemigos" unique_id=520515708 instance=ExtResource("41_nqffp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.722907, 39.76162, 0)
+
+[node name="Xenobat" parent="Enemigos" unique_id=2089777865 instance=ExtResource("41_adc0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.89877, 55.15396, 40.492218)
+shoot_range = 20.0
+detection_radius = 30.0
+
+[node name="Xenobat2" parent="Enemigos" unique_id=2024460841 instance=ExtResource("41_adc0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.89877, 49.27043, 40.492218)
+shoot_range = 20.0
+detection_radius = 30.0
+
+[node name="Xenobat3" parent="Enemigos" unique_id=47278275 instance=ExtResource("41_adc0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.755775, 55.15396, 59.210182)
+shoot_range = 20.0
+detection_radius = 30.0
+
+[node name="Xenobat4" parent="Enemigos" unique_id=1853943336 instance=ExtResource("41_adc0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.755775, 49.27043, 59.210182)
+shoot_range = 20.0
+detection_radius = 30.0
 
 [connection signal="drop_slot_data" from="UI/inventory_interface2" to="." method="_on_inventory_interface_2_drop_slot_data"]
 [connection signal="gui_input" from="UI/inventory_interface2" to="UI/inventory_interface2" method="_on_gui_input"]

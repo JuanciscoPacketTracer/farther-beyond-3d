@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3wfkihxjm1xf"]
+[gd_scene format=3 uid="uid://d3wfkihxjm1xf"]
 
 [ext_resource type="Texture2D" uid="uid://bebylo3407jsg" path="res://icon.svg" id="1_ioskq"]
 [ext_resource type="Texture2D" uid="uid://474lguhwukr6" path="res://bg1.png" id="1_sg54v"]
@@ -65,7 +65,7 @@ _data = {
 &"RESET": SubResource("Animation_4bx60")
 }
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=1842739943]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,12 +74,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yj5im")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_i2l1n")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=224352844]
+libraries/ = SubResource("AnimationLibrary_i2l1n")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1724668836]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,7 +87,7 @@ grow_vertical = 2
 texture = ExtResource("1_sg54v")
 expand_mode = 1
 
-[node name="motor" type="Control" parent="."]
+[node name="motor" type="Control" parent="." unique_id=1569295877]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,7 +95,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="motor"]
+[node name="TextureRect" type="TextureRect" parent="motor" unique_id=904407356]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,7 +111,7 @@ grow_vertical = 2
 pivot_offset = Vector2(65, 65)
 texture = ExtResource("1_ioskq")
 
-[node name="Label" type="Label" parent="motor"]
+[node name="Label" type="Label" parent="motor" unique_id=1315159480]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,7 +127,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 45
 text = "Desarrollado en Godot"
 
-[node name="ColorRect2" type="TextureRect" parent="."]
+[node name="ColorRect2" type="TextureRect" parent="." unique_id=956972901]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
