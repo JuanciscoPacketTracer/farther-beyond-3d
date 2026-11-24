@@ -58,3 +58,8 @@
 *.otf
 *.woff
 *.woff2
+
+# Assets published on the game's website
+!site/assets/
+!site/assets/*.png
+!site/assets/*.webp
