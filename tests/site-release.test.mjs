@@ -106,6 +106,13 @@ test("all local HTML assets exist and URLs work under a Pages project path", asy
   const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
   assert.match(html, /<html lang="es">/);
   assert.match(html, /<noscript>/);
+  assert.match(html, /¿Qué tan lejos<br><em>puedes llegar\?<\/em>/);
+  for (const section of ["astronauta", "critters", "gameplay"]) {
+    assert.match(html, new RegExp(`id="${section}"`));
+  }
+  for (const critter of ["Batling", "Xenobat", "Amplet", "Wurmy", "Toadroll"]) {
+    assert.ok(html.includes(critter), `Missing bestiary entry: ${critter}`);
+  }
   for (const [, path] of html.matchAll(/(?:src|href)="(\.\/[^"]+)"/g)) {
     await access(new URL(`../site/${path}`, import.meta.url));
   }

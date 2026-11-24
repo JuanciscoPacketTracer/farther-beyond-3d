@@ -7,7 +7,8 @@ Juego espacial en 3D desarrollado en Godot por **Deeper Beyond**.
 - Web: https://JuanciscoPacketTracer.github.io/farther-beyond-3d/
 - APK y versiones: https://github.com/JuanciscoPacketTracer/farther-beyond-3d/releases
 
-La web estática está en `site/`. Presenta el juego, sus imágenes y el equipo.
+La web estática está en `site/`. Presenta la historia del portal, al Astronauta,
+el bestiario de Dungeon Critters, los objetos, capturas del gameplay y al equipo.
 Consulta la API pública de GitHub para descargar la APK del último release
 estable. Si el release más reciente no tiene APK, busca uno anterior que sí
 la tenga. Excluye borradores, prereleases y archivos de firma `.idsig`.
@@ -19,12 +20,12 @@ el enlace a Releases.
 
 - Nombre, descripción, textos del equipo y ayuda: `site/index.html`.
 - Estilos y diseño adaptable: `site/styles.css`.
-- Logotipos e imágenes: `site/assets/` (incluidos explícitamente en `.gitignore`).
+- Logotipos, renders, Critters, objetos y capturas: `site/assets/` (incluidos
+  explícitamente en `.gitignore`).
 - Repositorio de descargas: `site/releases.mjs` y enlaces en `site/index.html`.
 
-Los textos descriptivos iniciales son una propuesta editorial; el equipo
-puede sustituirlos por la descripción y presentación oficiales.
-Las imágenes proceden de los assets proporcionados para el juego.
+La historia y los textos presentan la narrativa y los personajes definidos
+para el juego. Las capturas, renders e ilustraciones proceden de sus assets.
 La web no publica la APK ni claves de firma en el árbol del repositorio.
 `site/.gdignore` evita que Godot importe estos recursos web.
 
