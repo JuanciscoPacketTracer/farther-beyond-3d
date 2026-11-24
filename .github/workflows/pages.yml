@@ -39,3 +39,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify public website
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \
+            --connect-timeout 10 --max-time 30 "$SITE_URL" | grep -F 'id="apk-download"'
+          curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \
+            --connect-timeout 10 --max-time 30 "${SITE_URL}releases.mjs" | grep -F 'export async function getLatestApk'

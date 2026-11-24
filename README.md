@@ -42,14 +42,15 @@ Abre http://localhost:8080. No se necesitan dependencias de npm ni compilación.
 En **Settings → Pages → Build and deployment**, selecciona **GitHub Actions**.
 El workflow `.github/workflows/pages.yml` prueba y publica únicamente `site/`
 cuando cambian sus archivos en `main`; también permite ejecución manual.
+Después del despliegue verifica por HTTP la página y su módulo de descargas.
 
 Para actualizar el juego, publica un release estable con un archivo `.apk`
 en sus assets. La web detecta la actualización al abrirla o recargarla, sin
 necesidad de modificar ni volver a desplegar el sitio. Ejemplo:
 
 ```sh
-gh release create v0.1.0 --title "Farther Beyond 3D v0.1.0" \
-  --notes "Primera APK pública para Android." \
+gh release create v1.0.1 --title "Farther Beyond 3D v1.0.1" \
+  --notes "Nueva APK para Android." \
   "releases/Farther Beyond 3D.apk"
 ```
 
