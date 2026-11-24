@@ -48,6 +48,13 @@ jobs:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \
-            --connect-timeout 10 --max-time 30 "$SITE_URL" | grep -F 'id="apk-download"'
+            --connect-timeout 10 --max-time 30 "${SITE_URL}?revision=${GITHUB_SHA}" \
+            --output /tmp/farther-beyond-site.html
+          for section in apk-download astronauta critters gameplay; do
+            grep -F "id=\"$section\"" /tmp/farther-beyond-site.html
+          done
           curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \
             --connect-timeout 10 --max-time 30 "${SITE_URL}releases.mjs" | grep -F 'export async function getLatestApk'
+          curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \
+            --connect-timeout 10 --max-time 30 "${SITE_URL}assets/astronaut-render.webp" \
+            --output /dev/null
