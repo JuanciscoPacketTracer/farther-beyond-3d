@@ -119,3 +119,23 @@ test("all local HTML assets exist and URLs work under a Pages project path", asy
   const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
   for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.has(id), `Missing anchor ${id}`);
 });
+
+test("provides an accessible tester form and progressive scroll animations", async () => {
+  const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
+  const css = await readFile(new URL("../site/styles.css", import.meta.url), "utf8");
+  const app = await readFile(new URL("../site/app.mjs", import.meta.url), "utf8");
+
+  assert.match(html, /href="#testers">Dejar feedback<\/a>/);
+  assert.match(html, /id="testers"/);
+  assert.match(html, /¿Ya jugaste Farther Beyond\?/);
+  assert.match(html, /Este formulario es para quienes ya jugaron/);
+  assert.doesNotMatch(html, /Únete al equipo de testers|antes de su lanzamiento/);
+  assert.match(html, /src="https:\/\/docs\.google\.com\/forms\/d\/e\/1FAIpQLSeMDuxeJHvVdFgeFpmXtvYVEwtX4QGglcTMwX1cX6vo7ekqyw\/viewform\?embedded=true"/);
+  assert.match(html, /title="Formulario para testers de Farther Beyond"/);
+  assert.match(html, /Ábrelo directamente en Google Forms/);
+  assert.match(html, /data-reveal/);
+  assert.match(app, /new IntersectionObserver/);
+  assert.match(app, /prefers-reduced-motion/);
+  assert.match(css, /\.tester-form-card iframe \{[^}]*width: 100%/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+});

@@ -50,9 +50,11 @@ jobs:
           curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \
             --connect-timeout 10 --max-time 30 "${SITE_URL}?revision=${GITHUB_SHA}" \
             --output /tmp/farther-beyond-site.html
-          for section in apk-download astronauta critters gameplay; do
+          for section in apk-download astronauta critters gameplay testers; do
             grep -F "id=\"$section\"" /tmp/farther-beyond-site.html
           done
+          grep -F '¿Ya jugaste Farther Beyond?' /tmp/farther-beyond-site.html
+          grep -F 'viewform?embedded=true' /tmp/farther-beyond-site.html
           curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \
             --connect-timeout 10 --max-time 30 "${SITE_URL}releases.mjs" | grep -F 'export async function getLatestApk'
           curl --fail --show-error --retry 5 --retry-delay 10 --retry-all-errors \

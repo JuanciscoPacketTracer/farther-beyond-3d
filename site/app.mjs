@@ -49,3 +49,19 @@ async function loadRelease() {
 
 retry.addEventListener("click", loadRelease);
 loadRelease();
+
+const revealTargets = document.querySelectorAll("[data-reveal]");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if ("IntersectionObserver" in window && !prefersReducedMotion) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+
+  document.documentElement.classList.add("reveal-ready");
+  revealTargets.forEach((target) => revealObserver.observe(target));
+}

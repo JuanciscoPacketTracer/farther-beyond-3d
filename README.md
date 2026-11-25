@@ -20,6 +20,11 @@ el enlace a Releases.
 
 - Nombre, descripción, textos del equipo y ayuda: `site/index.html`.
 - Estilos y diseño adaptable: `site/styles.css`.
+- Formulario de feedback para quienes ya jugaron como testers: embed de Google
+  Forms y enlace alternativo en `site/index.html`.
+- Animaciones al desplazarse: elementos `data-reveal` en `site/index.html` y
+  su observador en `site/app.mjs`; se desactivan con la preferencia de
+  movimiento reducido.
 - Logotipos, renders, Critters, objetos y capturas: `site/assets/` (incluidos
   explícitamente en `.gitignore`).
 - Repositorio de descargas: `site/releases.mjs` y enlaces en `site/index.html`.
