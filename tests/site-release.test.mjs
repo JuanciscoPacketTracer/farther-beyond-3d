@@ -139,3 +139,16 @@ test("provides an accessible tester form and progressive scroll animations", asy
   assert.match(css, /\.tester-form-card iframe \{[^}]*width: 100%/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 });
+
+test("places the download, post-play survey and repository in that order", async () => {
+  const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
+  const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
+  assert.ok(main, "Missing main content");
+  const sections = [...main.matchAll(/<section\b[^>]*\bid="([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(sections.slice(-3), ["descargar", "testers", "equipo"]);
+  const nav = html.match(/<nav\b[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+  assert.ok(nav, "Missing navigation");
+  const links = [...nav.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(links.slice(-3), ["descargar", "testers", "equipo"]);
+  assert.match(main, /href="https:\/\/github\.com\/JuanciscoPacketTracer\/farther-beyond-3d">Visita el repositorio en GitHub/);
+});
