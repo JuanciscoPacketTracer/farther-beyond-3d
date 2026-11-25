@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import { findApk, formatSize, getLatestApk, releasesUrl } from "../site/releases.mjs";
+import { initCarousel } from "../site/carousel.mjs";
 
 const asset = {
   name: "Farther Beyond 3D.apk",
@@ -151,4 +152,113 @@ test("places the download, post-play survey and repository in that order", async
   const links = [...nav.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]);
   assert.deepEqual(links.slice(-3), ["descargar", "testers", "equipo"]);
   assert.match(main, /href="https:\/\/github\.com\/JuanciscoPacketTracer\/farther-beyond-3d">Visita el repositorio en GitHub/);
+});
+
+test("provides separate Critter and gameplay carousels with a no-JavaScript fallback", async () => {
+  const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
+  const app = await readFile(new URL("../site/app.mjs", import.meta.url), "utf8");
+  for (const [section, slideCount] of [["critters", 5], ["gameplay", 3]]) {
+    const content = html.match(new RegExp(`<section\\b[^>]*id="${section}"[^>]*>([\\s\\S]*?)</section>`))?.[1];
+    assert.ok(content, `Missing ${section} section`);
+    assert.equal([...content.matchAll(/\bdata-carousel\b/g)].length, 1);
+    assert.equal([...content.matchAll(/\bdata-slide\b/g)].length, slideCount);
+    assert.match(content, /class="carousel-controls" hidden/);
+    assert.match(content, /data-previous/);
+    assert.match(content, /data-next/);
+    assert.match(content, /data-rotation/);
+    assert.doesNotMatch(content, /data-slide[^>]*\shidden/);
+  }
+  assert.match(app, /import \{ initCarousel \} from "\.\/carousel\.mjs"/);
+});
+
+test("carousel rotates every 10 seconds, wraps, and pauses for interaction", () => {
+  class Element {
+    listeners = {};
+    hidden = false;
+    attributes = {};
+    classList = { add: (value) => { this.activeClass = value; } };
+    addEventListener(type, handler) { this.listeners[type] = handler; }
+    setAttribute(name, value) { this.attributes[name] = value; }
+    contains(target) { return target === this; }
+    fire(type, event = {}) { this.listeners[type](event); }
+  }
+  const slides = [new Element(), new Element(), new Element()];
+  const controls = new Element();
+  const previous = new Element();
+  const next = new Element();
+  const rotation = new Element();
+  const count = new Element();
+  const carousel = new Element();
+  const doc = new Element();
+  const motion = new Element();
+  motion.matches = false;
+  carousel.querySelectorAll = () => slides;
+  carousel.querySelector = (selector) => ({
+    ".carousel-controls": controls, "[data-previous]": previous, "[data-next]": next,
+    "[data-rotation]": rotation, "[data-count]": count,
+  })[selector];
+  let scheduled;
+  const setTimer = (callback, delay) => { scheduled = { callback, delay }; return scheduled; };
+  const clearTimer = () => { scheduled = null; };
+  initCarousel(carousel, { motion, doc, setTimer, clearTimer });
+  assert.deepEqual(slides.map((slide) => slide.hidden), [false, true, true]);
+  assert.equal(controls.hidden, false);
+  assert.equal(scheduled.delay, 10000);
+  scheduled.callback();
+  assert.deepEqual(slides.map((slide) => slide.hidden), [true, false, true]);
+  assert.equal(count.textContent, "2 / 3");
+  carousel.fire("mouseenter");
+  assert.equal(scheduled, null);
+  carousel.fire("mouseleave");
+  assert.equal(scheduled.delay, 10000);
+  carousel.fire("focusin");
+  assert.equal(scheduled, null);
+  previous.fire("click");
+  assert.deepEqual(slides.map((slide) => slide.hidden), [false, true, true]);
+  assert.equal(count.attributes["aria-live"], "polite");
+  previous.fire("click");
+  assert.deepEqual(slides.map((slide) => slide.hidden), [true, true, false]);
+  carousel.fire("focusout", { relatedTarget: null });
+  assert.equal(scheduled, null);
+  rotation.fire("click");
+  assert.equal(scheduled.delay, 10000);
+  doc.hidden = true;
+  doc.fire("visibilitychange");
+  assert.equal(scheduled, null);
+  doc.hidden = false;
+  doc.fire("visibilitychange");
+  assert.equal(scheduled.delay, 10000);
+  motion.fire("change", { matches: true });
+  assert.equal(scheduled, null);
+  assert.equal(rotation.textContent, "Reanudar rotación automática");
+});
+
+test("carousel honors reduced motion and can be navigated manually", () => {
+  class Element {
+    listeners = {};
+    classList = { add() {} };
+    addEventListener(type, handler) { this.listeners[type] = handler; }
+    setAttribute() {}
+  }
+  const slides = [new Element(), new Element()];
+  const controls = new Element();
+  const previous = new Element();
+  const next = new Element();
+  const rotation = new Element();
+  const count = new Element();
+  const carousel = new Element();
+  const doc = new Element();
+  const motion = new Element();
+  motion.matches = true;
+  carousel.querySelectorAll = () => slides;
+  carousel.querySelector = (selector) => ({
+    ".carousel-controls": controls, "[data-previous]": previous, "[data-next]": next,
+    "[data-rotation]": rotation, "[data-count]": count,
+  })[selector];
+  let timerCount = 0;
+  initCarousel(carousel, { motion, doc, setTimer: () => { timerCount += 1; }, clearTimer() {} });
+  assert.equal(timerCount, 0);
+  next.listeners.click();
+  assert.deepEqual(slides.map((slide) => slide.hidden), [true, false]);
+  assert.equal(timerCount, 0);
 });

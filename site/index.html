@@ -91,27 +91,35 @@
           <div><p class="eyebrow">03 / ENCUENTROS EN LA GALAXIA</p><h2 id="critters-title">Conoce a los Critters.</h2></div>
           <img class="dungeon-logo" src="./assets/dungeon-critters-title.webp" alt="Dungeon Critters, el mundo de donde vienen estas criaturas" width="227" height="94" loading="lazy">
         </div>
-        <div class="critter-grid">
-          <article class="critter-card" data-reveal>
-            <div class="critter-art"><img src="./assets/batling.png" alt="" width="96" height="96" loading="lazy"></div>
-            <div class="critter-info"><span class="critter-kind">VOLADOR</span><h3>Batling</h3><p>El murciélago morado que llegó desde Dungeon Critters.</p></div>
-          </article>
-          <article class="critter-card" data-reveal>
-            <div class="critter-art"><img src="./assets/xenobat.png" alt="" width="96" height="96" loading="lazy"></div>
-            <div class="critter-info"><span class="critter-kind">EVOLUCIÓN ESPACIAL</span><h3>Xenobat</h3><p>Un Batling transformado tras exponerse al espacio.</p></div>
-          </article>
-          <article class="critter-card ally-card" data-reveal>
-            <div class="critter-art"><img src="./assets/amplet.png" alt="" width="96" height="96" loading="lazy"></div>
-            <div class="critter-info"><span class="critter-kind">ALIADO ELÉCTRICO</span><h3>Amplet</h3><p>La evolución eléctrica de Cindlet. Una pequeña luz amiga que ayuda al Astronauta.</p></div>
-          </article>
-          <article class="critter-card" data-reveal>
-            <div class="critter-art"><img src="./assets/wurmy.png" alt="" width="96" height="96" loading="lazy"></div>
-            <div class="critter-info"><span class="critter-kind">RASTREADOR</span><h3>Wurmy</h3><p>Se arrastra por el suelo y sigue de cerca al jugador.</p></div>
-          </article>
-          <article class="critter-card" data-reveal>
-            <div class="critter-art"><img src="./assets/toadroll.png" alt="" width="96" height="96" loading="lazy"></div>
-            <div class="critter-info"><span class="critter-kind">ENCUENTRO</span><h3>Toadroll</h3><p>El hongo rojo de Dungeon Critters que se cruza en el camino.</p></div>
-          </article>
+        <div class="carousel" data-carousel role="region" aria-roledescription="carrusel" aria-label="Critters" data-reveal>
+          <div class="critter-grid carousel-slides">
+            <article class="critter-card" data-slide>
+              <div class="critter-art"><img src="./assets/batling.png" alt="" width="96" height="96" loading="lazy"></div>
+              <div class="critter-info"><span class="critter-kind">VOLADOR</span><h3>Batling</h3><p>El murciélago morado que llegó desde Dungeon Critters.</p></div>
+            </article>
+            <article class="critter-card" data-slide>
+              <div class="critter-art"><img src="./assets/xenobat.png" alt="" width="96" height="96" loading="lazy"></div>
+              <div class="critter-info"><span class="critter-kind">EVOLUCIÓN ESPACIAL</span><h3>Xenobat</h3><p>Un Batling transformado tras exponerse al espacio.</p></div>
+            </article>
+            <article class="critter-card ally-card" data-slide>
+              <div class="critter-art"><img src="./assets/amplet.png" alt="" width="96" height="96" loading="lazy"></div>
+              <div class="critter-info"><span class="critter-kind">ALIADO ELÉCTRICO</span><h3>Amplet</h3><p>La evolución eléctrica de Cindlet. Una pequeña luz amiga que ayuda al Astronauta.</p></div>
+            </article>
+            <article class="critter-card" data-slide>
+              <div class="critter-art"><img src="./assets/wurmy.png" alt="" width="96" height="96" loading="lazy"></div>
+              <div class="critter-info"><span class="critter-kind">RASTREADOR</span><h3>Wurmy</h3><p>Se arrastra por el suelo y sigue de cerca al jugador.</p></div>
+            </article>
+            <article class="critter-card" data-slide>
+              <div class="critter-art"><img src="./assets/toadroll.png" alt="" width="96" height="96" loading="lazy"></div>
+              <div class="critter-info"><span class="critter-kind">ENCUENTRO</span><h3>Toadroll</h3><p>El hongo rojo de Dungeon Critters que se cruza en el camino.</p></div>
+            </article>
+          </div>
+          <div class="carousel-controls" hidden>
+            <button type="button" class="carousel-arrow" data-previous aria-label="Critter anterior">←</button>
+            <span class="carousel-count" data-count aria-live="polite"></span>
+            <button type="button" class="carousel-arrow" data-next aria-label="Critter siguiente">→</button>
+            <button type="button" class="carousel-pause" data-rotation>Pausar rotación automática</button>
+          </div>
         </div>
         <div class="items-panel">
           <div><p class="eyebrow">HERRAMIENTAS PARA EL CAMINO</p><h3>Un poco de ayuda para la misión.</h3></div>
@@ -125,10 +133,18 @@
           <div><p class="eyebrow">04 / IMÁGENES DEL JUEGO</p><h2 id="gameplay-title">La aventura, en marcha.</h2></div>
           <p>Un vistazo a los viajes por el espacio, los niveles y los encuentros que esperan al Astronauta.</p>
         </div>
-        <div class="gameplay-gallery">
-          <figure class="gameplay-shot" data-reveal><img src="./assets/gameplay-flight.webp" alt="La nave del jugador vuela entre restos de una estación espacial y Xenobats" width="1100" height="618" loading="lazy"><figcaption>Exploración espacial</figcaption></figure>
-          <figure class="gameplay-shot" data-reveal><img src="./assets/gameplay-portal.webp" alt="Interior oscuro de un nivel y una puerta al fondo" width="1100" height="618" loading="lazy"><figcaption>Un camino hacia la brecha</figcaption></figure>
-          <figure class="gameplay-shot" data-reveal><img src="./assets/gameplay-encounter.webp" alt="El Astronauta se encuentra con un Batling y un Toadroll en un nivel" width="1100" height="618" loading="lazy"><figcaption>Encuentros con los Critters</figcaption></figure>
+        <div class="carousel" data-carousel role="region" aria-roledescription="carrusel" aria-label="Capturas del juego" data-reveal>
+          <div class="gameplay-gallery carousel-slides">
+            <figure class="gameplay-shot" data-slide><img src="./assets/gameplay-flight.webp" alt="La nave del jugador vuela entre restos de una estación espacial y Xenobats" width="1100" height="618" loading="lazy"><figcaption>Exploración espacial</figcaption></figure>
+            <figure class="gameplay-shot" data-slide><img src="./assets/gameplay-portal.webp" alt="Interior oscuro de un nivel y una puerta al fondo" width="1100" height="618" loading="lazy"><figcaption>Un camino hacia la brecha</figcaption></figure>
+            <figure class="gameplay-shot" data-slide><img src="./assets/gameplay-encounter.webp" alt="El Astronauta se encuentra con un Batling y un Toadroll en un nivel" width="1100" height="618" loading="lazy"><figcaption>Encuentros con los Critters</figcaption></figure>
+          </div>
+          <div class="carousel-controls" hidden>
+            <button type="button" class="carousel-arrow" data-previous aria-label="Captura anterior">←</button>
+            <span class="carousel-count" data-count aria-live="polite"></span>
+            <button type="button" class="carousel-arrow" data-next aria-label="Captura siguiente">→</button>
+            <button type="button" class="carousel-pause" data-rotation>Pausar rotación automática</button>
+          </div>
         </div>
       </section>
 

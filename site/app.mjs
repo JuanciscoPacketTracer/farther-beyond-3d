@@ -1,4 +1,5 @@
 import { formatSize, getLatestApk } from "./releases.mjs";
+import { initCarousel } from "./carousel.mjs";
 
 const download = document.querySelector("#apk-download");
 const version = document.querySelector("#release-version");
@@ -49,6 +50,8 @@ async function loadRelease() {
 
 retry.addEventListener("click", loadRelease);
 loadRelease();
+
+document.querySelectorAll("[data-carousel]").forEach((carousel) => initCarousel(carousel));
 
 const revealTargets = document.querySelectorAll("[data-reveal]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

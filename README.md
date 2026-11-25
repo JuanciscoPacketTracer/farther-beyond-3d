@@ -25,6 +25,9 @@ el enlace a Releases.
 - Animaciones al desplazarse: elementos `data-reveal` en `site/index.html` y
   su observador en `site/app.mjs`; se desactivan con la preferencia de
   movimiento reducido.
+- Carruseles de Critters y gameplay: contenido en `site/index.html` y lógica
+  compartida en `site/carousel.mjs`. Avanzan cada 10 segundos; pueden pausarse
+  o recorrerse manualmente, y no arrancan automáticamente con movimiento reducido.
 - Logotipos, renders, Critters, objetos y capturas: `site/assets/` (incluidos
   explícitamente en `.gitignore`).
 - Repositorio de descargas: `site/releases.mjs` y enlaces en `site/index.html`.
